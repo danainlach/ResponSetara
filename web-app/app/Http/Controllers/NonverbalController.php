@@ -10,6 +10,7 @@ use App\Services\Api\PublicContentService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Services\AggregateStatisticRecorder;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -21,6 +22,9 @@ class NonverbalController extends Controller
 
     public function index(Request $request): Response
     {
+        // Record aggregate statistics for nonverbal mode open
+        AggregateStatisticRecorder::record('nonverbal_mode_opened');
+
         try {
             $categories = EmergencyCategoryResource::collection($this->contentService->getCategories())->resolve();
             $phrases = QuickPhraseResource::collection($this->contentService->getQuickPhrases('nonverbal'))->resolve();

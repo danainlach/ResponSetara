@@ -27,7 +27,7 @@ export default function PrivacyDisclaimerSection() {
                                 1. Pesan Tidak Disimpan
                             </h3>
                             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-                                Server ResponSetara menerapkan Zero-Retention Policy. Tidak ada riwayat pesan darurat, audio, transkripsi, atau koordinat lokasi yang disimpan di database atau log server kami.
+                                ResponSetara hanya menyimpan hitungan aktivitas harian secara agregat. Sistem tidak menyimpan identitas pengguna, isi pesan, lokasi, audio, maupun transkripsi.
                             </p>
                         </div>
                     </div>

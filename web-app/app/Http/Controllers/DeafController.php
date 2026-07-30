@@ -9,6 +9,7 @@ use App\Services\Api\PublicContentService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Services\AggregateStatisticRecorder;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -20,6 +21,9 @@ class DeafController extends Controller
 
     public function index(Request $request): Response
     {
+        // Record aggregate statistics for deaf mode open
+        AggregateStatisticRecorder::record('deaf_mode_opened');
+
         try {
             $helperGuides = HelperGuideResource::collection($this->contentService->getHelperGuides('deaf'))->resolve();
             $hasError = false;

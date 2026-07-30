@@ -12,7 +12,7 @@ import {
     ShieldCheck,
     Users,
 } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 
 interface Stats {
     active_categories: number;
@@ -57,7 +57,7 @@ export default function AdminDashboardPage({ stats, recentLogs }: DashboardProps
     ];
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Dashboard Ringkasan Admin', href: '/admin' }]}>
+        <>
             <Head title="Dashboard Ringkasan — CMS Administrator ResponSetara" />
 
             <div className="mx-auto max-w-7xl space-y-8 py-2">
@@ -169,6 +169,9 @@ export default function AdminDashboardPage({ stats, recentLogs }: DashboardProps
                     </div>
                 </section>
             </div>
-        </AdminLayout>
+        </>
     );
 }
+
+AdminDashboardPage.layout = AdminPersistentLayout;
+AdminDashboardPage.breadcrumbs = [{ title: 'Dashboard Ringkasan Admin', href: '/admin' }];

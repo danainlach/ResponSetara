@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2 } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -34,7 +34,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Konten Website & Diskon', href: '/admin/site-contents' }]}>
+        <>
             <Head title="Manajemen Konten Website — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -98,6 +98,9 @@ return;
 
             <SiteContentFormModal isOpen={isFormOpen} initialData={selectedItem} onClose={() => setIsFormOpen(false)} />
             <ConfirmationModal isOpen={!!confirmAction} title="Konfirmasi Perubahan Konten" description={`Apakah Anda yakin ingin memproses aksi pada konten "${confirmAction?.item.key}"?`} onConfirm={handleExecuteConfirm} onCancel={() => setConfirmAction(null)} />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminSiteContentsIndex.layout = AdminPersistentLayout;
+AdminSiteContentsIndex.breadcrumbs = [{ title: 'Konten Website & Diskon', href: '/admin/site-contents' }];

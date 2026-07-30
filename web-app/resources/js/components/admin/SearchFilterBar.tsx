@@ -29,14 +29,35 @@ export default function SearchFilterBar({
     createButtonLabel = 'Tambah Data',
 }: SearchFilterBarProps) {
     const [search, setSearch] = React.useState(initialSearch);
+    const prevSearchRef = React.useRef(initialSearch);
+
+    React.useEffect(() => {
+        // Trigger search automatically after 350ms of typing inactivity
+        if (search === prevSearchRef.current) {
+            return;
+        }
+
+        const handler = setTimeout(() => {
+            prevSearchRef.current = search;
+            router.get(
+                routePath,
+                { search, trashed: initialTrashed ? '1' : undefined },
+                { preserveState: true, replace: true }
+            );
+        }, 350);
+
+        return () => clearTimeout(handler);
+    }, [search, routePath, initialTrashed]);
 
     const handleSearchSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        prevSearchRef.current = search;
         router.get(routePath, { search, trashed: initialTrashed ? '1' : undefined }, { preserveState: true, replace: true });
     };
 
     const handleReset = () => {
         setSearch('');
+        prevSearchRef.current = '';
         router.get(routePath, {}, { preserveState: true, replace: true });
     };
 

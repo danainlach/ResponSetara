@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2, RotateCcw } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -53,7 +53,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Kategori Keadaan Darurat', href: '/admin/categories' }]}>
+        <>
             <Head title="Manajemen Kategori Darurat — CMS ResponSetara" />
 
             <div className="mx-auto max-w-7xl space-y-6 py-2">
@@ -194,6 +194,9 @@ return;
                 onConfirm={handleExecuteConfirm}
                 onCancel={() => setConfirmAction(null)}
             />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminCategoriesIndex.layout = AdminPersistentLayout;
+AdminCategoriesIndex.breadcrumbs = [{ title: 'Kategori Keadaan Darurat', href: '/admin/categories' }];

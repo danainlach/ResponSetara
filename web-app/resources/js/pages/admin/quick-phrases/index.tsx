@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2, RotateCcw, Volume2 } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -39,7 +39,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Frasa Cepat Darurat', href: '/admin/quick-phrases' }]}>
+        <>
             <Head title="Manajemen Frasa Cepat — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -118,6 +118,9 @@ return;
 
             <QuickPhraseFormModal isOpen={isFormOpen} initialData={selectedItem} categories={categories} modes={modes} priorities={priorities} onClose={() => setIsFormOpen(false)} />
             <ConfirmationModal isOpen={!!confirmAction} title="Konfirmasi Perubahan Frasa" description={`Melanjutkan aksi untuk frasa "${confirmAction?.item.phrase_text}"?`} onConfirm={handleExecuteConfirm} onCancel={() => setConfirmAction(null)} />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminQuickPhrasesIndex.layout = AdminPersistentLayout;
+AdminQuickPhrasesIndex.breadcrumbs = [{ title: 'Frasa Cepat Darurat', href: '/admin/quick-phrases' }];

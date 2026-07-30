@@ -159,6 +159,7 @@ class EmergencyMessageTemplateService
 
         // If AI is not requested, immediately return deterministic template
         if (!$useAi) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,
@@ -171,6 +172,8 @@ class EmergencyMessageTemplateService
 
         // If use_ai is true but ai_consent is false or absent, enforce consent fallback
         if (!$aiConsent) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
+            \App\Services\AggregateStatisticRecorder::record('ai_fallback_used');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,
@@ -185,6 +188,8 @@ class EmergencyMessageTemplateService
         $ip = request() ? (request()->ip() ?? '127.0.0.1') : '127.0.0.1';
         $rateLimitKey = 'gemini_ai_throttle:' . $ip;
         if (RateLimiter::tooManyAttempts($rateLimitKey, 10)) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
+            \App\Services\AggregateStatisticRecorder::record('ai_fallback_used');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,
@@ -197,6 +202,8 @@ class EmergencyMessageTemplateService
         RateLimiter::hit($rateLimitKey, 60);
 
         if (!$this->refinementService) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
+            \App\Services\AggregateStatisticRecorder::record('ai_fallback_used');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,
@@ -257,6 +264,7 @@ class EmergencyMessageTemplateService
             }
             $finalAiMessage = $this->normalizePunctuation($finalAiMessage);
 
+            \App\Services\AggregateStatisticRecorder::record('message_composed_ai');
             return [
                 'source' => 'ai',
                 'message' => $finalAiMessage,
@@ -266,6 +274,8 @@ class EmergencyMessageTemplateService
                 'selected' => $baseSelected,
             ];
         } catch (GeminiProviderException $e) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
+            \App\Services\AggregateStatisticRecorder::record('ai_fallback_used');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,
@@ -275,6 +285,8 @@ class EmergencyMessageTemplateService
                 'selected' => $baseSelected,
             ];
         } catch (\Throwable $e) {
+            \App\Services\AggregateStatisticRecorder::record('message_composed_template');
+            \App\Services\AggregateStatisticRecorder::record('ai_fallback_used');
             return [
                 'source' => 'template',
                 'message' => $composedMessage,

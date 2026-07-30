@@ -11,6 +11,7 @@ use App\Services\Api\PublicContentService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Services\AggregateStatisticRecorder;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -22,6 +23,9 @@ class AssistanceController extends Controller
 
     public function index(Request $request): Response
     {
+        // Record aggregate statistics for assistance mode open
+        AggregateStatisticRecorder::record('assistance_mode_opened');
+
         try {
             $categories = EmergencyCategoryResource::collection($this->contentService->getCategories())->resolve();
             $conditions = EmergencyConditionResource::collection($this->contentService->getAllConditions())->resolve();

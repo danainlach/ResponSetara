@@ -84,3 +84,9 @@ export default function AdminLayout({
         </AppShell>
     );
 }
+
+export const AdminPersistentLayout = (page: React.ReactNode) => {
+    const breadcrumbs = (page as any)?.type?.breadcrumbs || [];
+
+    return <AdminLayout breadcrumbs={breadcrumbs}>{page}</AdminLayout>;
+};

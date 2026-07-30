@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2, RotateCcw } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -37,7 +37,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Panduan Penolong', href: '/admin/helper-guides' }]}>
+        <>
             <Head title="Manajemen Panduan Penolong — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -110,6 +110,9 @@ return;
 
             <HelperGuideFormModal isOpen={isFormOpen} initialData={selectedItem} audiences={audiences} onClose={() => setIsFormOpen(false)} />
             <ConfirmationModal isOpen={!!confirmAction} title="Konfirmasi Panduan Penolong" description={`Konfirmasi aksi untuk panduan "${confirmAction?.item.title}"?`} onConfirm={handleExecuteConfirm} onCancel={() => setConfirmAction(null)} />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminHelperGuidesIndex.layout = AdminPersistentLayout;
+AdminHelperGuidesIndex.breadcrumbs = [{ title: 'Panduan Penolong', href: '/admin/helper-guides' }];

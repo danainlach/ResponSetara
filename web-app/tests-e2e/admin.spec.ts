@@ -41,9 +41,14 @@ test.describe('Admin Dashboard, Auth & CMS E2E', () => {
         // Verify navigation to Admin Dashboard or main Dashboard
         await expect(page).toHaveURL(/.*\/(admin\/dashboard|dashboard)/, { timeout: 10000 });
 
+        // Wait for the Inertia redirect request and React mounting to finish
+        await page.waitForLoadState('networkidle');
+
         // Go explicitly to admin dashboard if on standard dashboard
-        await page.goto('/admin/dashboard');
-        await expect(page).toHaveURL(/.*\/admin\/dashboard/);
+        if (!page.url().endsWith('/admin/dashboard')) {
+            await page.goto('/admin/dashboard');
+            await page.waitForLoadState('networkidle');
+        }
 
         // Verify presence of CMS management menu items
         const menuContent = await page.textContent('body');

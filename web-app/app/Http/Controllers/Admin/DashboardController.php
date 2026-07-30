@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
+use Illuminate\Support\Facades\Cache;
+
 class DashboardController extends Controller
 {
     /**
@@ -25,16 +27,16 @@ class DashboardController extends Controller
      */
     public function index(Request $request): Response
     {
-        $stats = [
-            'active_categories' => EmergencyCategory::active()->count(),
-            'active_conditions' => EmergencyCondition::active()->count(),
-            'active_assistance_types' => AssistanceType::active()->count(),
-            'active_phrases' => QuickPhrase::active()->count(),
-            'active_guides' => HelperGuide::active()->count(),
-            'verified_contacts' => EmergencyContact::active()->verified()->count(),
-            'inactive_contents' => SiteContent::where('is_active', false)->count(),
-            'active_ai_prompts' => AiPrompt::active()->count(),
-        ];
+        $stats = Cache::remember('admin_dashboard_stats', 120, fn () => [
+            'active_categories' => (int) EmergencyCategory::active()->count(),
+            'active_conditions' => (int) EmergencyCondition::active()->count(),
+            'active_assistance_types' => (int) AssistanceType::active()->count(),
+            'active_phrases' => (int) QuickPhrase::active()->count(),
+            'active_guides' => (int) HelperGuide::active()->count(),
+            'verified_contacts' => (int) EmergencyContact::active()->verified()->count(),
+            'inactive_contents' => (int) SiteContent::where('is_active', false)->count(),
+            'active_ai_prompts' => (int) AiPrompt::active()->count(),
+        ]);
 
         $recentLogs = AdminActivityLog::with('user:id,name,email')
             ->orderBy('created_at', 'desc')

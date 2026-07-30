@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2, RotateCcw, Bot, AlertCircle } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -36,7 +36,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Konfigurasi Prompt AI', href: '/admin/ai-prompts' }]}>
+        <>
             <Head title="Manajemen Prompt AI — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -123,6 +123,9 @@ return;
                 onConfirm={handleExecuteConfirm}
                 onCancel={() => setConfirmAction(null)}
             />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminAiPromptsIndex.layout = AdminPersistentLayout;
+AdminAiPromptsIndex.breadcrumbs = [{ title: 'Konfigurasi Prompt AI', href: '/admin/ai-prompts' }];

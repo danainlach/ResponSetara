@@ -1,7 +1,7 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
 import { History, ShieldCheck } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import AdminPagination from '@/components/admin/AdminPagination';
 
@@ -23,7 +23,7 @@ interface PageProps {
 
 export default function AdminActivityLogsIndex({ logs, filters }: PageProps) {
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Log Aktivitas Admin (Read-Only)', href: '/admin/activity-logs' }]}>
+        <>
             <Head title="Audit Trail & Log Aktivitas Admin — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -99,7 +99,10 @@ export default function AdminActivityLogsIndex({ logs, filters }: PageProps) {
                     </table>
                 </div>
                 <AdminPagination links={logs.links} total={logs.total} />
-            </div>
-        </AdminLayout>
+        </div>
+        </>
     );
 }
+
+AdminActivityLogsIndex.layout = AdminPersistentLayout;
+AdminActivityLogsIndex.breadcrumbs = [{ title: 'Log Aktivitas Admin (Read-Only)', href: '/admin/activity-logs' }];

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Head, router } from '@inertiajs/react';
 import { Pencil, Trash2, RotateCcw } from 'lucide-react';
-import AdminLayout from '@/layouts/AdminLayout';
+import { AdminPersistentLayout } from '@/layouts/AdminLayout';
 import SearchFilterBar from '@/components/admin/SearchFilterBar';
 import StatusBadge from '@/components/admin/StatusBadge';
 import AdminPagination from '@/components/admin/AdminPagination';
@@ -44,7 +44,7 @@ return;
     };
 
     return (
-        <AdminLayout breadcrumbs={[{ title: 'Jenis Bantuan Darurat', href: '/admin/assistance-types' }]}>
+        <>
             <Head title="Manajemen Jenis Bantuan — CMS ResponSetara" />
             <div className="mx-auto max-w-7xl space-y-6 py-2">
                 <header>
@@ -128,6 +128,9 @@ return;
 
             <AssistanceTypeFormModal isOpen={isFormOpen} initialData={selectedItem} categories={categories} onClose={() => setIsFormOpen(false)} />
             <ConfirmationModal isOpen={!!confirmAction} title={confirmAction?.type === 'delete' ? 'Hapus Sementara Jenis Bantuan' : confirmAction?.type === 'restore' ? 'Pulihkan Jenis Bantuan' : 'Ubah Status Jenis Bantuan'} description={`Konfirmasi aksi untuk "${confirmAction?.item.label}"?`} onConfirm={handleExecuteConfirm} onCancel={() => setConfirmAction(null)} />
-        </AdminLayout>
+        </>
     );
 }
+
+AdminAssistanceTypesIndex.layout = AdminPersistentLayout;
+AdminAssistanceTypesIndex.breadcrumbs = [{ title: 'Jenis Bantuan Darurat', href: '/admin/assistance-types' }];
