@@ -1,0 +1,84 @@
+services:
+  - type: web
+    name: responsetara-staging
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /up
+    dockerfilePath: ./web-app/Dockerfile
+    dockerContext: ./web-app
+    autoDeployTrigger: off
+    envVars:
+      - key: APP_NAME
+        value: ResponSetara-Staging
+      - key: APP_ENV
+        value: staging
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false # Set manually in Render Dashboard
+      - key: APP_URL
+        sync: false # Set manually in Render Dashboard (e.g., https://your-app.onrender.com)
+      - key: ASSET_URL
+        sync: false # Set manually in Render Dashboard if CDN is used (or matches APP_URL)
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: info
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        sync: false # External Supabase host
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        sync: false # External Supabase database
+      - key: DB_USERNAME
+        sync: false # External Supabase username
+      - key: DB_PASSWORD
+        sync: false # External Supabase password
+      - key: DB_SCHEMA
+        value: responsetara
+      - key: DB_SSLMODE
+        value: require
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: SESSION_HTTP_ONLY
+        value: "true"
+      - key: SESSION_SAME_SITE
+        value: lax
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: GEMINI_ENABLED
+        value: "false"
+      - key: GEMINI_API_KEY
+        sync: false # External Gemini API Key
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_API_VERSION
+        value: v1beta
+      - key: GEMINI_CONNECT_TIMEOUT
+        value: "10"
+      - key: GEMINI_TIMEOUT
+        value: "30"
+      - key: GEMINI_MAX_RETRIES
+        value: "3"
+      - key: GEMINI_TEMPERATURE
+        value: "1.0"
+      - key: GEMINI_MAX_OUTPUT_TOKENS
+        value: "1024"
+      - key: ADMIN_NAME
+        sync: false # Set temporarily for first deploy
+      - key: ADMIN_EMAIL
+        sync: false # Set temporarily for first deploy
+      - key: ADMIN_PASSWORD
+        sync: false # Set temporarily for first deploy. Delete after successful seed!
+      - key: RUN_MIGRATIONS_ON_START
+        value: "true"
+      - key: SEED_ADMIN_ON_START
+        value: "false"

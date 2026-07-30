@@ -1,0 +1,22 @@
+# FILE INDEX
+
+- `FILE_INDEX.md`
+- `README_START_HERE.md`
+- `RINGKASAN_UNTUK_WHATSAPP.txt`
+- `SOURCES_AND_LICENSES.md`
+- `assets/ASSET_MANIFEST.md`
+- `database/env_example.txt`
+- `database/schema_reference.sql`
+- `docs/APIS_DATASETS_AND_SAFETY.md`
+- `docs/ARCHITECTURE_AND_API.md`
+- `docs/PRD_UPDATED.md`
+- `docs/TESTING_CHECKLIST.md`
+- `prompts/MASTER_AND_PHASED_PROMPTS.md`
+- `seed_data/assistance_types.json`
+- `seed_data/categories.json`
+- `seed_data/conditions.json`
+- `seed_data/emergency_contacts.json`
+- `seed_data/helper_guides.json`
+- `seed_data/quick_phrases.json`
+- `seed_data/quick_phrases_review.csv`
+- `seed_data/site_contents.json`

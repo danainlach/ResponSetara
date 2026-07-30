@@ -1,0 +1,32 @@
+[
+  {
+    "key": "hero.headline",
+    "value": "Komunikasi darurat yang dapat dipahami semua orang.",
+    "content_type": "text",
+    "is_active": true
+  },
+  {
+    "key": "hero.description",
+    "value": "Ubah teks menjadi suara, suara menjadi teks, dan susun pesan darurat secara cepat melalui satu halaman yang aksesibel.",
+    "content_type": "text",
+    "is_active": true
+  },
+  {
+    "key": "hero.cta",
+    "value": "Mulai Komunikasi Darurat",
+    "content_type": "text",
+    "is_active": true
+  },
+  {
+    "key": "disclaimer.main",
+    "value": "ResponSetara membantu komunikasi dan tidak menggantikan layanan darurat resmi.",
+    "content_type": "text",
+    "is_active": true
+  },
+  {
+    "key": "privacy.message",
+    "value": "Pesan dan transkripsi tidak disimpan oleh ResponSetara.",
+    "content_type": "text",
+    "is_active": true
+  }
+]

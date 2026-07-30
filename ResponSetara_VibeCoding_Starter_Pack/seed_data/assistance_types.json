@@ -1,0 +1,92 @@
+[
+  {
+    "code": "call_ambulance",
+    "category_code": "medical",
+    "label": "Hubungi ambulans",
+    "description": "Meminta bantuan medis darurat.",
+    "template_fragment": "Tolong hubungi layanan medis darurat atau ambulans.",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "code": "call_police",
+    "category_code": "security",
+    "label": "Hubungi polisi",
+    "description": "Meminta bantuan kepolisian.",
+    "template_fragment": "Tolong hubungi polisi.",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "code": "call_fire_department",
+    "category_code": "fire",
+    "label": "Hubungi pemadam kebakaran",
+    "description": "Meminta bantuan pemadam.",
+    "template_fragment": "Tolong hubungi pemadam kebakaran.",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "code": "call_emergency_112",
+    "category_code": null,
+    "label": "Hubungi layanan darurat 112",
+    "description": "Meminta panggilan ke layanan darurat terintegrasi bila tersedia di wilayah.",
+    "template_fragment": "Tolong hubungi layanan darurat 112 jika tersedia di wilayah ini.",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "code": "contact_family",
+    "category_code": null,
+    "label": "Hubungi keluarga atau pendamping",
+    "description": "Meminta seseorang menghubungi kontak keluarga.",
+    "template_fragment": "Tolong bantu hubungi keluarga atau pendamping saya.",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "code": "move_safe_place",
+    "category_code": "security",
+    "label": "Bantu menuju tempat aman",
+    "description": "Meminta bantuan menuju lokasi yang lebih aman tanpa memberi instruksi medis.",
+    "template_fragment": "Tolong bantu saya menuju tempat yang lebih aman jika memungkinkan.",
+    "sort_order": 6,
+    "is_active": true
+  },
+  {
+    "code": "write_instructions",
+    "category_code": null,
+    "label": "Tuliskan instruksi untuk saya",
+    "description": "Meminta komunikasi dalam bentuk teks.",
+    "template_fragment": "Mohon tuliskan instruksi agar saya dapat membacanya.",
+    "sort_order": 7,
+    "is_active": true
+  },
+  {
+    "code": "stay_with_me",
+    "category_code": null,
+    "label": "Tetap bersama saya",
+    "description": "Meminta penolong tidak meninggalkan pengguna sendirian.",
+    "template_fragment": "Tolong tetap bersama saya sampai bantuan datang.",
+    "sort_order": 8,
+    "is_active": true
+  },
+  {
+    "code": "help_exit",
+    "category_code": "disaster",
+    "label": "Bantu saya keluar dari lokasi",
+    "description": "Meminta bantuan evakuasi tanpa arahan teknis.",
+    "template_fragment": "Tolong bantu saya keluar dari lokasi ini dengan aman.",
+    "sort_order": 9,
+    "is_active": true
+  },
+  {
+    "code": "find_companion",
+    "category_code": "lost",
+    "label": "Bantu cari pendamping saya",
+    "description": "Meminta bantuan menemukan keluarga atau pendamping.",
+    "template_fragment": "Tolong bantu saya menemukan keluarga atau pendamping saya.",
+    "sort_order": 10,
+    "is_active": true
+  }
+]

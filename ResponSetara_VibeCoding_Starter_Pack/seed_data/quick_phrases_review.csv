@@ -1,0 +1,25 @@
+﻿category_code,mode,phrase_text,speech_text,simplified_text,priority,sort_order,is_active
+,nonverbal,Saya tidak dapat berbicara. Mohon baca pesan ini.,Saya tidak dapat berbicara. Mohon baca pesan ini.,Saya tidak bisa bicara. Baca pesan ini.,high,1,True
+,nonverbal,Tolong hubungi layanan darurat.,Tolong hubungi layanan darurat.,Hubungi bantuan darurat.,high,2,True
+medical,nonverbal,Saya sulit bernapas.,Saya sulit bernapas.,Saya susah bernapas.,high,3,True
+medical,nonverbal,Saya merasakan nyeri berat.,Saya merasakan nyeri berat.,Saya sangat kesakitan.,high,4,True
+accident,nonverbal,Saya mengalami kecelakaan dan membutuhkan bantuan.,Saya mengalami kecelakaan dan membutuhkan bantuan.,Saya kecelakaan. Tolong bantu.,high,5,True
+accident,nonverbal,Saya mengalami perdarahan.,Saya mengalami perdarahan.,Saya berdarah.,high,6,True
+fire,nonverbal,Ada kebakaran. Tolong hubungi pemadam kebakaran.,Ada kebakaran. Tolong hubungi pemadam kebakaran.,Ada kebakaran. Hubungi pemadam.,high,7,True
+security,nonverbal,Saya merasa tidak aman. Tolong hubungi polisi.,Saya merasa tidak aman. Tolong hubungi polisi.,Saya tidak aman. Hubungi polisi.,high,8,True
+disaster,nonverbal,Saya terjebak dan tidak dapat keluar sendiri.,Saya terjebak dan tidak dapat keluar sendiri.,Saya terjebak. Tolong bantu keluar.,high,9,True
+lost,nonverbal,Saya terpisah dari keluarga atau pendamping saya.,Saya terpisah dari keluarga atau pendamping saya.,Saya kehilangan pendamping.,medium,10,True
+,nonverbal,Tolong tetap bersama saya sampai bantuan datang.,Tolong tetap bersama saya sampai bantuan datang.,Tolong jangan tinggalkan saya.,medium,11,True
+,nonverbal,Tolong tuliskan pertanyaan Anda agar saya dapat menjawab.,Tolong tuliskan pertanyaan Anda agar saya dapat menjawab.,Tulis pertanyaan Anda.,medium,12,True
+,deaf,Saya tuli. Mohon berkomunikasi menggunakan tulisan.,Saya tuli. Mohon berkomunikasi menggunakan tulisan.,Saya tuli. Tolong tulis.,high,13,True
+,deaf,Mohon hadap ke arah saya ketika berbicara.,Mohon hadap ke arah saya ketika berbicara.,Tolong hadap saya saat bicara.,medium,14,True
+,deaf,Mohon bicara satu per satu dan gunakan kalimat singkat.,Mohon bicara satu per satu dan gunakan kalimat singkat.,Bicara satu per satu dan singkat.,medium,15,True
+,deaf,Saya belum memahami instruksinya. Mohon ulangi dalam tulisan.,Saya belum memahami instruksinya. Mohon ulangi dalam tulisan.,Saya belum paham. Tolong tulis ulang.,medium,16,True
+,general,Apakah Anda dapat membaca pesan saya?,Apakah Anda dapat membaca pesan saya?,Bisa baca pesan saya?,medium,17,True
+,general,Cara komunikasi apa yang paling nyaman untuk Anda?,Cara komunikasi apa yang paling nyaman untuk Anda?,Anda nyaman berkomunikasi bagaimana?,medium,18,True
+,general,Saya akan menuliskan informasi agar lebih mudah dipahami.,Saya akan menuliskan informasi agar lebih mudah dipahami.,Saya akan menulis informasinya.,medium,19,True
+,general,Bantuan sedang dihubungi. Saya akan tetap bersama Anda.,Bantuan sedang dihubungi. Saya akan tetap bersama Anda.,Bantuan sedang dihubungi. Saya tetap di sini.,high,20,True
+medical,general,Apakah Anda membutuhkan bantuan medis?,Apakah Anda membutuhkan bantuan medis?,Butuh bantuan medis?,high,21,True
+security,general,Apakah Anda merasa aman berada di sini?,Apakah Anda merasa aman berada di sini?,Apakah tempat ini aman?,high,22,True
+,general,Apakah ada keluarga atau pendamping yang dapat dihubungi?,Apakah ada keluarga atau pendamping yang dapat dihubungi?,Ada keluarga yang bisa dihubungi?,medium,23,True
+,general,Mohon tunjukkan lokasi yang terasa sakit jika Anda dapat melakukannya.,Mohon tunjukkan lokasi yang terasa sakit jika Anda dapat melakukannya.,Tunjukkan bagian yang sakit.,medium,24,True

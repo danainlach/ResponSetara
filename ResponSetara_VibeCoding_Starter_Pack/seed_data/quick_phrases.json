@@ -1,0 +1,242 @@
+[
+  {
+    "category_code": null,
+    "mode": "nonverbal",
+    "phrase_text": "Saya tidak dapat berbicara. Mohon baca pesan ini.",
+    "speech_text": "Saya tidak dapat berbicara. Mohon baca pesan ini.",
+    "simplified_text": "Saya tidak bisa bicara. Baca pesan ini.",
+    "priority": "high",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "nonverbal",
+    "phrase_text": "Tolong hubungi layanan darurat.",
+    "speech_text": "Tolong hubungi layanan darurat.",
+    "simplified_text": "Hubungi bantuan darurat.",
+    "priority": "high",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "category_code": "medical",
+    "mode": "nonverbal",
+    "phrase_text": "Saya sulit bernapas.",
+    "speech_text": "Saya sulit bernapas.",
+    "simplified_text": "Saya susah bernapas.",
+    "priority": "high",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "category_code": "medical",
+    "mode": "nonverbal",
+    "phrase_text": "Saya merasakan nyeri berat.",
+    "speech_text": "Saya merasakan nyeri berat.",
+    "simplified_text": "Saya sangat kesakitan.",
+    "priority": "high",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "category_code": "accident",
+    "mode": "nonverbal",
+    "phrase_text": "Saya mengalami kecelakaan dan membutuhkan bantuan.",
+    "speech_text": "Saya mengalami kecelakaan dan membutuhkan bantuan.",
+    "simplified_text": "Saya kecelakaan. Tolong bantu.",
+    "priority": "high",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "category_code": "accident",
+    "mode": "nonverbal",
+    "phrase_text": "Saya mengalami perdarahan.",
+    "speech_text": "Saya mengalami perdarahan.",
+    "simplified_text": "Saya berdarah.",
+    "priority": "high",
+    "sort_order": 6,
+    "is_active": true
+  },
+  {
+    "category_code": "fire",
+    "mode": "nonverbal",
+    "phrase_text": "Ada kebakaran. Tolong hubungi pemadam kebakaran.",
+    "speech_text": "Ada kebakaran. Tolong hubungi pemadam kebakaran.",
+    "simplified_text": "Ada kebakaran. Hubungi pemadam.",
+    "priority": "high",
+    "sort_order": 7,
+    "is_active": true
+  },
+  {
+    "category_code": "security",
+    "mode": "nonverbal",
+    "phrase_text": "Saya merasa tidak aman. Tolong hubungi polisi.",
+    "speech_text": "Saya merasa tidak aman. Tolong hubungi polisi.",
+    "simplified_text": "Saya tidak aman. Hubungi polisi.",
+    "priority": "high",
+    "sort_order": 8,
+    "is_active": true
+  },
+  {
+    "category_code": "disaster",
+    "mode": "nonverbal",
+    "phrase_text": "Saya terjebak dan tidak dapat keluar sendiri.",
+    "speech_text": "Saya terjebak dan tidak dapat keluar sendiri.",
+    "simplified_text": "Saya terjebak. Tolong bantu keluar.",
+    "priority": "high",
+    "sort_order": 9,
+    "is_active": true
+  },
+  {
+    "category_code": "lost",
+    "mode": "nonverbal",
+    "phrase_text": "Saya terpisah dari keluarga atau pendamping saya.",
+    "speech_text": "Saya terpisah dari keluarga atau pendamping saya.",
+    "simplified_text": "Saya kehilangan pendamping.",
+    "priority": "medium",
+    "sort_order": 10,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "nonverbal",
+    "phrase_text": "Tolong tetap bersama saya sampai bantuan datang.",
+    "speech_text": "Tolong tetap bersama saya sampai bantuan datang.",
+    "simplified_text": "Tolong jangan tinggalkan saya.",
+    "priority": "medium",
+    "sort_order": 11,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "nonverbal",
+    "phrase_text": "Tolong tuliskan pertanyaan Anda agar saya dapat menjawab.",
+    "speech_text": "Tolong tuliskan pertanyaan Anda agar saya dapat menjawab.",
+    "simplified_text": "Tulis pertanyaan Anda.",
+    "priority": "medium",
+    "sort_order": 12,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "deaf",
+    "phrase_text": "Saya tuli. Mohon berkomunikasi menggunakan tulisan.",
+    "speech_text": "Saya tuli. Mohon berkomunikasi menggunakan tulisan.",
+    "simplified_text": "Saya tuli. Tolong tulis.",
+    "priority": "high",
+    "sort_order": 13,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "deaf",
+    "phrase_text": "Mohon hadap ke arah saya ketika berbicara.",
+    "speech_text": "Mohon hadap ke arah saya ketika berbicara.",
+    "simplified_text": "Tolong hadap saya saat bicara.",
+    "priority": "medium",
+    "sort_order": 14,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "deaf",
+    "phrase_text": "Mohon bicara satu per satu dan gunakan kalimat singkat.",
+    "speech_text": "Mohon bicara satu per satu dan gunakan kalimat singkat.",
+    "simplified_text": "Bicara satu per satu dan singkat.",
+    "priority": "medium",
+    "sort_order": 15,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "deaf",
+    "phrase_text": "Saya belum memahami instruksinya. Mohon ulangi dalam tulisan.",
+    "speech_text": "Saya belum memahami instruksinya. Mohon ulangi dalam tulisan.",
+    "simplified_text": "Saya belum paham. Tolong tulis ulang.",
+    "priority": "medium",
+    "sort_order": 16,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Apakah Anda dapat membaca pesan saya?",
+    "speech_text": "Apakah Anda dapat membaca pesan saya?",
+    "simplified_text": "Bisa baca pesan saya?",
+    "priority": "medium",
+    "sort_order": 17,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Cara komunikasi apa yang paling nyaman untuk Anda?",
+    "speech_text": "Cara komunikasi apa yang paling nyaman untuk Anda?",
+    "simplified_text": "Anda nyaman berkomunikasi bagaimana?",
+    "priority": "medium",
+    "sort_order": 18,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Saya akan menuliskan informasi agar lebih mudah dipahami.",
+    "speech_text": "Saya akan menuliskan informasi agar lebih mudah dipahami.",
+    "simplified_text": "Saya akan menulis informasinya.",
+    "priority": "medium",
+    "sort_order": 19,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Bantuan sedang dihubungi. Saya akan tetap bersama Anda.",
+    "speech_text": "Bantuan sedang dihubungi. Saya akan tetap bersama Anda.",
+    "simplified_text": "Bantuan sedang dihubungi. Saya tetap di sini.",
+    "priority": "high",
+    "sort_order": 20,
+    "is_active": true
+  },
+  {
+    "category_code": "medical",
+    "mode": "general",
+    "phrase_text": "Apakah Anda membutuhkan bantuan medis?",
+    "speech_text": "Apakah Anda membutuhkan bantuan medis?",
+    "simplified_text": "Butuh bantuan medis?",
+    "priority": "high",
+    "sort_order": 21,
+    "is_active": true
+  },
+  {
+    "category_code": "security",
+    "mode": "general",
+    "phrase_text": "Apakah Anda merasa aman berada di sini?",
+    "speech_text": "Apakah Anda merasa aman berada di sini?",
+    "simplified_text": "Apakah tempat ini aman?",
+    "priority": "high",
+    "sort_order": 22,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Apakah ada keluarga atau pendamping yang dapat dihubungi?",
+    "speech_text": "Apakah ada keluarga atau pendamping yang dapat dihubungi?",
+    "simplified_text": "Ada keluarga yang bisa dihubungi?",
+    "priority": "medium",
+    "sort_order": 23,
+    "is_active": true
+  },
+  {
+    "category_code": null,
+    "mode": "general",
+    "phrase_text": "Mohon tunjukkan lokasi yang terasa sakit jika Anda dapat melakukannya.",
+    "speech_text": "Mohon tunjukkan lokasi yang terasa sakit jika Anda dapat melakukannya.",
+    "simplified_text": "Tunjukkan bagian yang sakit.",
+    "priority": "medium",
+    "sort_order": 24,
+    "is_active": true
+  }
+]

@@ -1,0 +1,51 @@
+# Version Control & Metadata
+.git
+.github
+.gitignore
+.gitattributes
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials*
+
+# Dependency folders (will be resolved in build stages)
+node_modules/
+vendor/
+
+# Local databases
+*.sqlite
+database.sqlite
+
+# Build logs & temp files
+storage/logs/*.log
+storage/framework/sessions/*
+storage/framework/views/*.php
+storage/framework/cache/data/*
+bootstrap/cache/*.php
+
+# Dev build helpers & configs
+public/hot
+public/mix-manifest.json
+
+# Test configurations & results
+tests/
+tests-e2e/
+playwright-report/
+test-results/
+screenshots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.log
+walkthrough.md
+implementation_plan.md
+task.md
+
+# OS specific files
+.DS_Store
+Thumbs.db

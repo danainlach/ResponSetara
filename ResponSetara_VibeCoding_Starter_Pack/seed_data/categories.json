@@ -1,0 +1,56 @@
+[
+  {
+    "code": "accident",
+    "name": "Kecelakaan",
+    "slug": "kecelakaan",
+    "description": "Kecelakaan lalu lintas atau kejadian yang menyebabkan cedera.",
+    "color": "#E5484D",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "code": "medical",
+    "name": "Kesehatan",
+    "slug": "kesehatan",
+    "description": "Kondisi kesehatan yang membutuhkan bantuan segera.",
+    "color": "#087F83",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "code": "fire",
+    "name": "Kebakaran",
+    "slug": "kebakaran",
+    "description": "Kebakaran, asap, atau risiko api.",
+    "color": "#D97706",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "code": "security",
+    "name": "Keamanan",
+    "slug": "keamanan",
+    "description": "Ancaman, kekerasan, atau kebutuhan bantuan polisi.",
+    "color": "#183B63",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "code": "disaster",
+    "name": "Bencana",
+    "slug": "bencana",
+    "description": "Banjir, gempa, longsor, dan kejadian bencana lainnya.",
+    "color": "#475569",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "code": "lost",
+    "name": "Tersesat atau Terpisah",
+    "slug": "tersesat-terpisah",
+    "description": "Tersesat, kehilangan pendamping, atau terpisah dari keluarga.",
+    "color": "#7C3AED",
+    "sort_order": 6,
+    "is_active": true
+  }
+]

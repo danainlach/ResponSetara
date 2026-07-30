@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Tanyakan cara komunikasi yang nyaman",
+    "body": "Tanyakan apakah pengguna lebih nyaman membaca teks, mengetik, menggunakan suara sintetis, atau berkomunikasi dengan cara lain.",
+    "audience": "general",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "title": "Hadap pengguna ketika berbicara",
+    "body": "Pastikan wajah terlihat dengan jelas dan hindari berbicara sambil membelakangi pengguna.",
+    "audience": "deaf",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "title": "Gunakan kalimat singkat",
+    "body": "Sampaikan satu informasi dalam satu waktu dan hindari kalimat yang terlalu panjang.",
+    "audience": "general",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "title": "Jangan berteriak",
+    "body": "Berteriak tidak selalu membantu pengguna tuli dan dapat membuat situasi lebih menegangkan.",
+    "audience": "deaf",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "title": "Berikan waktu untuk merespons",
+    "body": "Jangan terburu-buru. Berikan waktu kepada pengguna untuk membaca, mengetik, atau memilih frasa.",
+    "audience": "nonverbal",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "title": "Jangan menyentuh alat bantu tanpa izin",
+    "body": "Jangan memindahkan atau menyentuh alat bantu komunikasi, alat bantu dengar, atau perangkat pengguna tanpa persetujuan.",
+    "audience": "general",
+    "sort_order": 6,
+    "is_active": true
+  },
+  {
+    "title": "Pastikan informasi dipahami",
+    "body": "Minta konfirmasi sederhana sebelum berpindah tempat atau melanjutkan tindakan.",
+    "audience": "general",
+    "sort_order": 7,
+    "is_active": true
+  },
+  {
+    "title": "Hubungi layanan resmi",
+    "body": "ResponSetara hanya membantu komunikasi. Hubungi layanan darurat resmi sesuai kebutuhan dan wilayah.",
+    "audience": "general",
+    "sort_order": 8,
+    "is_active": true
+  }
+]

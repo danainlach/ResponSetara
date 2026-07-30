@@ -1,0 +1,110 @@
+[
+  {
+    "code": "conscious",
+    "category_code": null,
+    "label": "Saya sadar",
+    "description": "Pengguna dalam keadaan sadar.",
+    "template_fragment": "Saya dalam keadaan sadar.",
+    "sort_order": 1,
+    "is_active": true
+  },
+  {
+    "code": "difficulty_speaking",
+    "category_code": null,
+    "label": "Saya sulit berbicara",
+    "description": "Pengguna mengalami hambatan berbicara.",
+    "template_fragment": "Saya sulit berbicara.",
+    "sort_order": 2,
+    "is_active": true
+  },
+  {
+    "code": "cannot_speak",
+    "category_code": null,
+    "label": "Saya tidak dapat berbicara",
+    "description": "Pengguna tidak dapat menggunakan komunikasi verbal.",
+    "template_fragment": "Saya tidak dapat berbicara.",
+    "sort_order": 3,
+    "is_active": true
+  },
+  {
+    "code": "deaf",
+    "category_code": null,
+    "label": "Saya tuli",
+    "description": "Pengguna membutuhkan komunikasi visual atau teks.",
+    "template_fragment": "Saya tuli. Mohon gunakan tulisan atau teks untuk berkomunikasi dengan saya.",
+    "sort_order": 4,
+    "is_active": true
+  },
+  {
+    "code": "difficulty_breathing",
+    "category_code": "medical",
+    "label": "Saya sulit bernapas",
+    "description": "Pernyataan gejala dari pengguna, bukan diagnosis.",
+    "template_fragment": "Saya sulit bernapas.",
+    "sort_order": 5,
+    "is_active": true
+  },
+  {
+    "code": "bleeding",
+    "category_code": "accident",
+    "label": "Saya mengalami perdarahan",
+    "description": "Pengguna melaporkan adanya perdarahan.",
+    "template_fragment": "Saya mengalami perdarahan.",
+    "sort_order": 6,
+    "is_active": true
+  },
+  {
+    "code": "severe_pain",
+    "category_code": "medical",
+    "label": "Saya merasakan nyeri berat",
+    "description": "Pernyataan tingkat nyeri oleh pengguna.",
+    "template_fragment": "Saya merasakan nyeri berat.",
+    "sort_order": 7,
+    "is_active": true
+  },
+  {
+    "code": "dizzy",
+    "category_code": "medical",
+    "label": "Saya merasa pusing",
+    "description": "Pernyataan kondisi oleh pengguna.",
+    "template_fragment": "Saya merasa pusing.",
+    "sort_order": 8,
+    "is_active": true
+  },
+  {
+    "code": "trapped",
+    "category_code": "disaster",
+    "label": "Saya terjebak",
+    "description": "Pengguna tidak dapat keluar dari lokasi.",
+    "template_fragment": "Saya terjebak dan tidak dapat keluar sendiri.",
+    "sort_order": 9,
+    "is_active": true
+  },
+  {
+    "code": "unsafe_location",
+    "category_code": "security",
+    "label": "Saya berada di tempat yang tidak aman",
+    "description": "Pengguna merasa lokasi saat ini tidak aman.",
+    "template_fragment": "Saya berada di tempat yang tidak aman.",
+    "sort_order": 10,
+    "is_active": true
+  },
+  {
+    "code": "with_other_person",
+    "category_code": null,
+    "label": "Saya bersama orang lain",
+    "description": "Pengguna tidak sendirian.",
+    "template_fragment": "Saya bersama orang lain yang juga mungkin membutuhkan bantuan.",
+    "sort_order": 11,
+    "is_active": true
+  },
+  {
+    "code": "separated",
+    "category_code": "lost",
+    "label": "Saya terpisah dari pendamping",
+    "description": "Pengguna terpisah dari keluarga atau pendamping.",
+    "template_fragment": "Saya terpisah dari keluarga atau pendamping saya.",
+    "sort_order": 12,
+    "is_active": true
+  }
+]

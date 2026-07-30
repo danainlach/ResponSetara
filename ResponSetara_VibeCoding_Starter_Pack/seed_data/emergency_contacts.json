@@ -1,0 +1,50 @@
+[
+  {
+    "service_name": "Layanan Darurat Terintegrasi",
+    "number": "112",
+    "scope": "Indonesia, mengikuti implementasi pemerintah daerah",
+    "coverage_note": "Layanan 112 diselenggarakan secara desentralisasi. Ketersediaan dan integrasi layanan dapat berbeda menurut wilayah.",
+    "source_name": "Portal Layanan Panggilan Darurat 112 Komdigi",
+    "source_url": "https://layanan112.komdigi.go.id/tentang",
+    "last_verified_at": "2026-07-27",
+    "is_verified": true,
+    "is_active": true,
+    "sort_order": 1
+  },
+  {
+    "service_name": "Polisi",
+    "number": "110",
+    "scope": "Indonesia",
+    "coverage_note": "Layanan pengaduan dan permintaan bantuan kepolisian.",
+    "source_name": "Website Resmi Polri",
+    "source_url": "https://polri.go.id/kontak/call-center-110",
+    "last_verified_at": "2026-07-27",
+    "is_verified": true,
+    "is_active": true,
+    "sort_order": 2
+  },
+  {
+    "service_name": "Pemadam Kebakaran",
+    "number": "113",
+    "scope": "Indonesia, cakupan dapat mengikuti layanan daerah",
+    "coverage_note": "Dicantumkan portal 112 sebagai salah satu layanan terintegrasi. Verifikasi kembali pada pemerintah daerah sebelum produksi.",
+    "source_name": "Portal Layanan Panggilan Darurat 112 Komdigi",
+    "source_url": "https://layanan112.komdigi.go.id/tentang",
+    "last_verified_at": "2026-07-27",
+    "is_verified": true,
+    "is_active": true,
+    "sort_order": 3
+  },
+  {
+    "service_name": "Layanan Medis atau Ambulans",
+    "number": "119",
+    "scope": "Indonesia, cakupan dapat mengikuti layanan daerah",
+    "coverage_note": "Dicantumkan portal 112 sebagai salah satu layanan terintegrasi. Verifikasi kembali sebelum produksi.",
+    "source_name": "Portal Layanan Panggilan Darurat 112 Komdigi",
+    "source_url": "https://layanan112.komdigi.go.id/tentang",
+    "last_verified_at": "2026-07-27",
+    "is_verified": true,
+    "is_active": true,
+    "sort_order": 4
+  }
+]

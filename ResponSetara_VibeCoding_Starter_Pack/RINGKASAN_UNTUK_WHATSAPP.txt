@@ -1,0 +1,51 @@
+UPDATE RESPONSETARA
+==================================================
+
+PERUBAHAN SCOPE
+1. Fitur Kartu Darurat dihapus.
+2. Fitur dan CMS Piktogram dihapus.
+3. Output diganti menjadi Pesan Darurat + mode layar besar.
+4. Ikon UI tetap boleh dipakai, tapi bukan fitur piktogram.
+
+STACK FINAL
+- Laravel 13
+- React 19 + TypeScript
+- Official Laravel React Starter Kit
+- Inertia + Vite + Tailwind
+- Supabase PostgreSQL
+- Laravel Authentication khusus admin
+- Gemini API melalui backend
+- Web Speech API untuk TTS dan STT
+- TailAdmin Free React untuk template dashboard admin
+
+KENAPA SUPABASE
+Data kategori, kondisi, bantuan, frasa, panduan, dan kontak
+bersifat relasional. Supabase menggunakan PostgreSQL sehingga
+cocok dengan migration dan Eloquent Laravel.
+
+DATASET
+- Dataset utama berupa seed CMS yang sudah disiapkan.
+- Mozilla Common Voice Indonesia hanya untuk pengembangan STT
+  lanjutan, bukan kebutuhan MVP.
+- Data BNPB opsional untuk statistik dan edukasi.
+- Kontak darurat dikelola admin dan diverifikasi berkala.
+
+CARA MENGURANGI HALUSINASI AI
+- Laravel membuat template lebih dulu.
+- Data sensitif diganti placeholder.
+- AI hanya merapikan kalimat.
+- Output wajib JSON.
+- Backend memvalidasi fakta dan placeholder.
+- Jika AI gagal, aplikasi memakai template.
+- Pesan dan transkripsi tidak disimpan.
+
+URUTAN PROMPT
+1. Master Guardrail
+2. Arsitektur dan rencana
+3. Scaffold project
+4. Database dan seed
+5. Landing page dan tiga mode
+6. AI Message Composer
+7. Dashboard admin dan CMS
+8. Security, accessibility, QA
+9. Deployment dan demo

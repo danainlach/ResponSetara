@@ -1,0 +1,315 @@
+openapi: 3.0.3
+info:
+  title: ResponSetara Public API
+  description: Public read-only emergency data API for ResponSetara React frontend. All endpoints are strict GET read-only and fully protect user privacy and admin cloud schemas.
+  version: 1.0.0
+servers:
+  - url: /api/v1
+    description: API v1 Gateway
+paths:
+  /config:
+    get:
+      summary: Get active site configurations and content
+      operationId: getConfig
+      responses:
+        '200':
+          description: Successful collection of active site configs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+  /categories:
+    get:
+      summary: List all active emergency categories
+      operationId: getCategories
+      responses:
+        '200':
+          description: Successful emergency category list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+  /categories/{slug}:
+    get:
+      summary: Get detailed active category by slug
+      operationId: getCategoryBySlug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Category detail response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /conditions:
+    get:
+      summary: List general or category-specific user emergency conditions
+      operationId: getConditions
+      parameters:
+        - name: category_id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful conditions list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /assistance-types:
+    get:
+      summary: List assistance types available for helpers
+      operationId: getAssistanceTypes
+      parameters:
+        - name: category_id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful assistance types list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /quick-phrases:
+    get:
+      summary: Search and retrieve emergency quick communication phrases
+      operationId: getQuickPhrases
+      parameters:
+        - name: mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [general, nonverbal, deaf]
+        - name: category_id
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 100
+      responses:
+        '200':
+          description: Successful quick phrases collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /helper-guides:
+    get:
+      summary: List first-aid instructions and helper guides
+      operationId: getHelperGuides
+      parameters:
+        - name: audience
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [general, nonverbal, deaf]
+      responses:
+        '200':
+          description: Successful helper guides collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /emergency-contacts:
+    get:
+      summary: Get official verified emergency phone numbers (112, 110, 113, 119)
+      operationId: getEmergencyContacts
+      responses:
+        '200':
+          description: Successful emergency contacts collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionResponse'
+  /compose-message:
+    post:
+      summary: Compose deterministic emergency message with optional Gemini AI refinement (Zero Data Retention)
+      operationId: composeMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComposeMessageRequest'
+      responses:
+        '200':
+          description: Composed message successfully returned (either AI refined or pure template fallback)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComposeMessageResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+components:
+  schemas:
+    ComposeMessageRequest:
+      type: object
+      required:
+        - communication_mode
+        - category_id
+      properties:
+        communication_mode:
+          type: string
+          enum: [assistance]
+        category_id:
+          type: integer
+          example: 1
+        condition_ids:
+          type: array
+          items:
+            type: integer
+          maxItems: 3
+        assistance_type_ids:
+          type: array
+          items:
+            type: integer
+          maxItems: 3
+        location:
+          type: object
+          properties:
+            manual_text:
+              type: string
+              maxLength: 180
+            latitude:
+              type: number
+            longitude:
+              type: number
+            include_coordinates:
+              type: boolean
+        additional_information:
+          type: string
+          maxLength: 300
+        use_ai:
+          type: boolean
+          description: Optional flag to request grammar and conciseness refinement using Gemini AI
+          example: true
+        ai_consent:
+          type: boolean
+          description: Mandatory user consent confirming agreement to process general emergency terms via AI without transmitting GPS location or personal notes
+          example: true
+    ComposeMessageResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          properties:
+            source:
+              type: string
+              enum: [template, ai]
+            message:
+              type: string
+            template_message:
+              type: string
+            fallback_used:
+              type: boolean
+              example: false
+            fallback_reason:
+              type: string
+              nullable: true
+              example: null
+            selected:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                condition_ids:
+                  type: array
+                  items:
+                    type: integer
+                assistance_type_ids:
+                  type: array
+                  items:
+                    type: integer
+        meta:
+          type: object
+          properties:
+            version:
+              type: string
+              example: v1
+    CollectionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: array
+          items:
+            type: object
+        meta:
+          type: object
+          properties:
+            version:
+              type: string
+              example: v1
+            count:
+              type: integer
+              example: 5
+    SingleResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+        meta:
+          type: object
+          properties:
+            version:
+              type: string
+              example: v1
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: "Parameter tidak valid."
+        errors:
+          type: object
+  responses:
+    NotFound:
+      description: Entity not found or inactive
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ValidationError:
+      description: Invalid parameter provided in query
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
