@@ -210,7 +210,7 @@ export default function AdminStatisticsIndex({ statistics, filters, categories, 
                 </div>
 
                 {/* Table Data */}
-                <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-sm">
+                <div className="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-sm">
                     <table aria-label="Tabel Statistik Aktivitas Agregat" className="w-full text-left text-sm text-zinc-300">
                         <thead className="border-b border-zinc-800 bg-zinc-950/80 text-xs uppercase text-zinc-400">
                             <tr>

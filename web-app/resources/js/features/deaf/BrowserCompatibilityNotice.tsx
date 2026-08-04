@@ -12,7 +12,7 @@ export default function BrowserCompatibilityNotice({ isSupported }: BrowserCompa
             </h2>
 
             {/* Absolute Privacy & Zero Data Retention Notice */}
-            <div className="rounded-2xl border-2 border-teal-700/30 bg-teal-50/70 p-4 sm:p-5 text-navy-900 shadow-xs">
+            <div className="rounded-2xl border-2 border-teal-primary/30 bg-teal-primary/10 p-4 sm:p-5 text-text-primary shadow-xs">
                 <div className="flex items-start gap-3">
                     <span aria-hidden="true" className="text-2xl mt-0.5 shrink-0">🔒</span>
                     <div className="space-y-1.5 min-w-0">
@@ -32,7 +32,7 @@ export default function BrowserCompatibilityNotice({ isSupported }: BrowserCompa
                 <div
                     role="alert"
                     aria-live="polite"
-                    className="rounded-2xl border-2 border-amber-400 bg-amber-50 p-4 text-amber-950 flex items-start gap-3 shadow-xs"
+                    className="rounded-2xl border-2 border-amber-500/30 bg-amber-500/10 p-4 text-[var(--text-primary)] flex items-start gap-3 shadow-xs"
                 >
                     <span aria-hidden="true" className="text-xl shrink-0 mt-0.5">⚠️</span>
                     <div>

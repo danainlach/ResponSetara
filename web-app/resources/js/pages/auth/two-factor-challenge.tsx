@@ -23,18 +23,18 @@ export default function TwoFactorChallenge() {
     }>(() => {
         if (showRecoveryInput) {
             return {
-                title: 'Recovery code',
+                title: 'Kode Pemulihan',
                 description:
-                    'Please confirm access to your account by entering one of your emergency recovery codes.',
-                toggleText: 'login using an authentication code',
+                    'Silakan konfirmasi akses ke akun Anda dengan memasukkan salah satu kode pemulihan darurat Anda.',
+                toggleText: 'masuk menggunakan kode otentikasi',
             };
         }
 
         return {
-            title: 'Authentication code',
+            title: 'Kode Otentikasi',
             description:
-                'Enter the authentication code provided by your authenticator application.',
-            toggleText: 'login using a recovery code',
+                'Masukkan kode otentikasi yang disediakan oleh aplikasi otentikator Anda.',
+            toggleText: 'masuk menggunakan kode pemulihan',
         };
     }, [showRecoveryInput]);
 
@@ -51,7 +51,7 @@ export default function TwoFactorChallenge() {
 
     return (
         <>
-            <Head title="Two-factor authentication" />
+            <Head title="Otentikasi Dua Faktor" />
 
             <div className="space-y-6">
                 <Form
@@ -67,8 +67,9 @@ export default function TwoFactorChallenge() {
                                     <Input
                                         name="recovery_code"
                                         type="text"
-                                        placeholder="Enter recovery code"
+                                        placeholder="Masukkan kode pemulihan"
                                         autoFocus={showRecoveryInput}
+                                        className="bg-white border-border-strong text-text-primary focus:border-teal-primary focus:ring-[3px] focus:ring-teal-primary/30 rounded-xl h-12 px-4"
                                         required
                                     />
                                     <InputError
@@ -87,13 +88,14 @@ export default function TwoFactorChallenge() {
                                             pattern={REGEXP_ONLY_DIGITS}
                                             autoFocus
                                         >
-                                            <InputOTPGroup>
+                                            <InputOTPGroup className="gap-2">
                                                 {Array.from(
                                                     { length: OTP_MAX_LENGTH },
                                                     (_, index) => (
                                                         <InputOTPSlot
                                                             key={index}
                                                             index={index}
+                                                            className="bg-white border-border-strong text-text-primary focus:border-teal-primary focus:ring-[3px] focus:ring-teal-primary/30 rounded-xl"
                                                         />
                                                     ),
                                                 )}
@@ -106,17 +108,17 @@ export default function TwoFactorChallenge() {
 
                             <Button
                                 type="submit"
-                                className="w-full"
+                                className="w-full bg-teal-primary hover:bg-teal-hover text-white font-black py-3 rounded-xl transition-all duration-200 shadow-md min-h-[48px]"
                                 disabled={processing}
                             >
-                                Continue
+                                Lanjutkan
                             </Button>
 
-                            <div className="text-center text-sm text-muted-foreground">
-                                <span>or you can </span>
+                            <div className="text-center text-sm text-text-secondary">
+                                <span>atau Anda dapat </span>
                                 <button
                                     type="button"
-                                    className="cursor-pointer text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                                    className="cursor-pointer text-teal-primary hover:text-teal-hover underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current!"
                                     onClick={() =>
                                         toggleRecoveryMode(clearErrors)
                                     }

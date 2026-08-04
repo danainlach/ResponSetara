@@ -62,26 +62,26 @@ export default function AssistanceMode({
             <div className="flex items-center justify-between">
                 <a
                     href="/"
-                    className="inline-flex items-center font-extrabold text-sm sm:text-base text-teal-700 hover:text-teal-800 focus:outline-none focus:underline"
+                    className="inline-flex items-center font-extrabold text-sm sm:text-base text-teal-primary hover:text-teal-hover focus:outline-none focus:underline transition-colors duration-200"
                 >
                     &larr; Kembali ke Beranda
                 </a>
-                <span className="text-xs font-semibold text-ink-600 hidden sm:inline-block">
+                <span className="text-xs font-semibold text-text-secondary hidden sm:inline-block">
                     ⚡ Mode Tanpa Retensi Data (Zero Storage)
                 </span>
             </div>
 
-            <div className="rounded-3xl bg-white border border-slate-200/80 p-6 sm:p-8 shadow-sm space-y-2">
-                <h1 className="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">
+            <div className="rounded-[22px] bg-card border border-public-border p-6 sm:p-8 shadow-card space-y-2">
+                <h1 className="text-2xl sm:text-3xl font-black text-text-primary tracking-tight">
                     Susun &amp; Bagikan Pesan Darurat
                 </h1>
-                <p className="text-sm sm:text-base text-ink-600 font-semibold leading-relaxed">
+                <p className="text-sm sm:text-base text-text-secondary font-semibold leading-relaxed">
                     ResponSetara membantu menyusun dan menyampaikan informasi kepada orang di sekitar atau melalui aplikasi komunikasi pilihan Anda. ResponSetara tidak mengirim laporan otomatis ke layanan darurat.
                 </p>
             </div>
 
             {hasError && (
-                <div role="alert" className="p-4 rounded-2xl bg-coral-50 border border-coral-600/30 text-ink-900 font-bold text-sm">
+                <div role="alert" className="p-4 rounded-2xl bg-coral-emergency/10 border border-coral-emergency/20 text-coral-emergency font-bold text-sm">
                     ⚠️ Terjadi kendala memuat sebagian data referensi online. Sistem tetap beroperasi menggunakan data cadangan aman.
                 </div>
             )}
@@ -95,7 +95,7 @@ export default function AssistanceMode({
                         onReset={resetForm}
                         onSwitchVersion={handleSwitchVersion}
                     />
-                    <div className="p-5 rounded-2xl bg-slate-200 text-center text-ink-600 text-sm font-semibold">
+                    <div className="p-5 rounded-2xl bg-public-surface-muted border border-public-border text-center text-text-secondary text-sm font-semibold">
                         Ingin mendaftarkan kondisi yang berbeda? Klik &ldquo;Ubah Informasi&rdquo; di atas untuk menyesuaikan formulir tanpa menghapus teks yang telah Anda pilih.
                     </div>
                 </div>

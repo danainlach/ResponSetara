@@ -75,7 +75,7 @@ return;
                     createButtonLabel="Tambah Kategori Baru"
                 />
 
-                <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-sm">
+                <div className="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-sm">
                     <table aria-label="Daftar Kategori Darurat" className="w-full text-left text-sm text-zinc-300">
                         <caption className="sr-only">Tabel manajemen kategori darurat ResponSetara</caption>
                         <thead className="border-b border-zinc-800 bg-zinc-950/80 text-xs uppercase text-zinc-400">

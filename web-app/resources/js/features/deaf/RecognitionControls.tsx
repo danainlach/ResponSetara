@@ -33,8 +33,8 @@ export default function RecognitionControls({
     const isStoppedOrError = status === 'stopped' || status === 'error';
 
     return (
-        <section aria-labelledby="controls-heading" className="rounded-2xl border-2 border-navy-800 p-4 sm:p-6 bg-white shadow-xs">
-            <h3 id="controls-heading" className="text-base sm:text-lg font-bold text-navy-900 mb-3">
+        <section aria-labelledby="controls-heading" className="rounded-[22px] border border-public-border bg-card p-6 shadow-card">
+            <h3 id="controls-heading" className="text-base sm:text-lg font-extrabold text-text-primary mb-3">
                 Kontrol Pengenalan Suara
             </h3>
 
@@ -46,7 +46,7 @@ export default function RecognitionControls({
                         onClick={onStart}
                         disabled={!isSupported || isLimitReached}
                         aria-label={isStoppedOrError ? "Dengarkan Lagi ucapan penolong" : "Mulai Mendengarkan ucapan penolong melalui mikrofon"}
-                        className="min-h-[48px] px-5 py-2.5 rounded-xl bg-coral-600 text-white font-extrabold text-sm sm:text-base shadow-md hover:bg-coral-600/90 focus:outline-none focus-visible:ring-4 focus-visible:ring-coral-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                        className="min-h-[48px] px-5 py-2.5 rounded-xl bg-teal-primary text-white font-extrabold text-sm sm:text-base shadow-md hover:bg-teal-hover focus:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-primary/30 disabled:bg-[var(--surface-soft)] disabled:text-[var(--text-muted)] disabled:opacity-100 disabled:cursor-not-allowed transition-all flex items-center gap-2 hover:-translate-y-0.5 active:translate-y-0"
                     >
                         <span aria-hidden="true">🎙️</span>
                         <span>{isStoppedOrError ? 'Dengarkan Lagi' : 'Mulai Mendengarkan'}</span>
@@ -56,7 +56,7 @@ export default function RecognitionControls({
                         type="button"
                         onClick={onStop}
                         aria-label="Berhentikan proses mendengarkan suara"
-                        className="min-h-[48px] px-5 py-2.5 rounded-xl bg-navy-900 text-white font-extrabold text-sm sm:text-base shadow-md hover:bg-navy-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 transition-colors flex items-center gap-2"
+                        className="min-h-[48px] px-5 py-2.5 rounded-xl bg-coral-emergency text-white font-extrabold text-sm sm:text-base shadow-md hover:bg-coral-hover focus:outline-none focus-visible:ring-[3px] focus-visible:ring-coral-emergency/30 transition-all flex items-center gap-2 hover:-translate-y-0.5 active:translate-y-0"
                     >
                         <span aria-hidden="true">⏹️</span>
                         <span>Berhenti</span>
@@ -69,7 +69,7 @@ export default function RecognitionControls({
                     onClick={onShowLargeText}
                     disabled={!hasText}
                     aria-label="Tampilkan hasil transkripsi dalam mode teks besar kontras tinggi"
-                    className="min-h-[48px] px-4 py-2.5 rounded-xl border-2 border-navy-800 bg-white text-navy-900 font-extrabold text-sm sm:text-base hover:bg-slate-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 disabled:opacity-40 disabled:border-slate-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                    className="min-h-[48px] px-4 py-2.5 rounded-xl border border-public-border-strong bg-[var(--surface)] text-text-primary font-extrabold text-sm sm:text-base hover:bg-public-selected hover:border-[var(--focus)] focus:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] disabled:opacity-100 disabled:border-[var(--border)] disabled:text-[var(--text-muted)] disabled:bg-[var(--surface-soft)] disabled:cursor-not-allowed transition-all flex items-center gap-2 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
                 >
                     <span aria-hidden="true">🔍</span>
                     <span>Teks Besar</span>
@@ -81,7 +81,7 @@ export default function RecognitionControls({
                     onClick={onCopy}
                     disabled={!hasText || isCopying}
                     aria-label="Salin seluruh teks hasil transkripsi dan input manual ke clipboard"
-                    className="min-h-[48px] px-4 py-2.5 rounded-xl border-2 border-teal-700 bg-teal-50 text-teal-900 font-bold text-sm sm:text-base hover:bg-teal-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 disabled:opacity-40 disabled:border-slate-300 disabled:bg-slate-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                    className="min-h-[48px] px-4 py-2.5 rounded-xl border border-public-border-strong bg-[var(--surface)] text-text-primary font-extrabold text-sm sm:text-base hover:bg-public-selected hover:border-[var(--focus)] focus:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] disabled:opacity-100 disabled:border-[var(--border)] disabled:text-[var(--text-muted)] disabled:bg-[var(--surface-soft)] disabled:cursor-not-allowed transition-all flex items-center gap-2 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
                 >
                     <span aria-hidden="true">{copyFeedback ? '✅' : '📋'}</span>
                     <span>{copyFeedback || 'Salin Teks'}</span>
@@ -93,7 +93,7 @@ export default function RecognitionControls({
                     onClick={onClear}
                     disabled={!hasText && !isListening}
                     aria-label="Hapus dan bersihkan seluruh hasil transkripsi dari layar"
-                    className="min-h-[48px] px-4 py-2.5 rounded-xl border-2 border-red-200 text-coral-600 font-bold text-sm sm:text-base hover:bg-red-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-coral-500 disabled:opacity-40 disabled:border-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed transition-colors flex items-center gap-2 ml-auto"
+                    className="min-h-[48px] px-4 py-2.5 rounded-xl border border-coral-emergency bg-coral-emergency/10 text-coral-emergency font-extrabold text-sm sm:text-base hover:bg-coral-emergency/20 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-coral-emergency/30 disabled:opacity-100 disabled:border-[var(--border)] disabled:text-[var(--text-muted)] disabled:bg-[var(--surface-soft)] disabled:cursor-not-allowed transition-all flex items-center gap-2 ml-auto hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
                 >
                     <span aria-hidden="true">🗑️</span>
                     <span>Hapus Teks</span>

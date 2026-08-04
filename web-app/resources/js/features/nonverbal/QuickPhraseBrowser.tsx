@@ -73,13 +73,13 @@ export default function QuickPhraseBrowser({
     }, [phrases, selectedCategoryId, searchQuery]);
 
     return (
-        <section aria-labelledby="quick-phrases-heading" className="rounded-2xl border-2 border-navy-800 bg-white p-4 sm:p-6 shadow-xs flex flex-col h-full">
-            <div className="border-b border-slate-200 pb-3 mb-4 flex items-center justify-between">
+        <section aria-labelledby="quick-phrases-heading" className="rounded-[22px] border border-public-border bg-card p-6 shadow-card flex flex-col h-full">
+            <div className="border-b border-public-border pb-3 mb-4 flex items-center justify-between">
                 <div>
-                    <h2 id="quick-phrases-heading" className="text-lg sm:text-xl font-bold text-navy-900">
+                    <h2 id="quick-phrases-heading" className="text-lg sm:text-xl font-extrabold text-text-primary">
                         Referensi Frasa Cepat
                     </h2>
-                    <p className="text-xs sm:text-sm text-ink-600 mt-0.5">
+                    <p className="text-xs sm:text-sm text-text-secondary mt-0.5">
                         Klik tombol di bawah untuk menyisipkan frasa tanpa autoplay suara.
                     </p>
                 </div>
@@ -91,7 +91,7 @@ export default function QuickPhraseBrowser({
                     Cari frasa darurat dari database
                 </label>
                 <div className="relative">
-                    <span aria-hidden="true" className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold">
+                    <span aria-hidden="true" className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-secondary font-bold">
                         🔍
                     </span>
                     <input
@@ -100,7 +100,7 @@ export default function QuickPhraseBrowser({
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Cari frasa (misal: ambulans, sakit, dokter)..."
-                        className="w-full min-h-[48px] rounded-xl border-2 border-slate-300 bg-slate-50 pl-10 pr-4 py-2 text-sm sm:text-base text-ink-900 placeholder:text-slate-400 font-semibold focus:border-teal-700 focus:bg-white focus:outline-none focus:ring-4 focus:ring-teal-500/30 transition-colors"
+                        className="w-full min-h-[48px] rounded-xl border border-public-border bg-[var(--surface-soft)] pl-10 pr-4 py-2 text-sm sm:text-base text-text-primary placeholder:text-[var(--text-muted)] font-semibold focus:border-[var(--focus)] focus:bg-[var(--surface)] focus:outline-none focus:ring-[3px] focus:ring-[var(--focus-ring)] transition-all"
                     />
                 </div>
             </div>
@@ -111,10 +111,10 @@ export default function QuickPhraseBrowser({
                     type="button"
                     onClick={() => setSelectedCategoryId(null)}
                     aria-pressed={selectedCategoryId === null}
-                    className={`min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 ${
+                    className={`min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-primary/30 ${
                         selectedCategoryId === null
-                            ? 'bg-teal-800 text-white shadow-sm'
-                            : 'bg-slate-100 text-ink-600 hover:bg-slate-200'
+                            ? 'bg-teal-primary text-white border border-teal-primary shadow-sm'
+                            : 'bg-[var(--surface)] text-text-primary border border-public-border-strong hover:bg-public-selected hover:border-[var(--focus)]'
                     }`}
                 >
                     Semua Kategori
@@ -125,10 +125,10 @@ export default function QuickPhraseBrowser({
                         type="button"
                         onClick={() => setSelectedCategoryId(cat.id)}
                         aria-pressed={selectedCategoryId === cat.id}
-                        className={`min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 ${
+                        className={`min-h-[44px] px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-primary/30 ${
                             selectedCategoryId === cat.id
-                                ? 'bg-teal-800 text-white shadow-sm'
-                                : 'bg-slate-100 text-ink-600 hover:bg-slate-200'
+                                ? 'bg-teal-primary text-white border border-teal-primary shadow-sm'
+                                : 'bg-[var(--surface)] text-text-primary border border-public-border-strong hover:bg-public-selected hover:border-[var(--focus)]'
                         }`}
                     >
                         {cat.name}
@@ -165,7 +165,7 @@ export default function QuickPhraseBrowser({
                 )}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-600 font-semibold text-center">
+            <div className="mt-4 pt-3 border-t border-public-border text-xs text-text-secondary font-semibold text-center">
                 *Seluruh referensi frasa bersumber dari database publik ResponSetara (murni berbasis teks resmi).
             </div>
         </section>

@@ -25,7 +25,7 @@ export default function SpeechRateSelector({
 
     return (
         <fieldset className="space-y-2">
-            <legend className="text-sm sm:text-base font-bold text-navy-900">
+            <legend className="text-sm sm:text-base font-extrabold text-text-primary">
                 Kecepatan Baca Suara (Rate)
             </legend>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3" role="radiogroup" aria-label="Kecepatan Baca Suara">
@@ -40,10 +40,10 @@ export default function SpeechRateSelector({
                             aria-checked={isSelected}
                             aria-label={rate.ariaLabel}
                             onClick={() => onSelectRate(rate.value)}
-                            className={`min-h-[44px] min-w-[44px] rounded-xl px-3 py-2 text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 shadow-2xs ${
+                            className={`min-h-[44px] min-w-[44px] rounded-xl px-3 py-2 text-xs sm:text-sm font-extrabold transition-colors focus:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-primary/30 shadow-2xs ${
                                 isSelected
-                                    ? 'bg-navy-900 text-white border-2 border-navy-900 shadow-sm'
-                                    : 'bg-white text-ink-900 border-2 border-slate-300 hover:border-slate-400'
+                                    ? 'bg-teal-primary text-white border border-teal-primary shadow-sm'
+                                    : 'bg-[var(--surface)] text-text-primary border border-public-border-strong hover:border-[var(--focus)] hover:bg-public-selected'
                             }`}
                         >
                             {rate.label}

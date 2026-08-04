@@ -28,24 +28,24 @@ export default function HelperGuidesSection({
     const getAudienceBadge = (audience: string) => {
         switch (audience) {
             case 'deaf':
-                return { text: 'Untuk Pengguna Tuli', bg: 'bg-navy-900 text-white border-navy-800' };
+                return { text: 'Untuk Pengguna Tuli', bg: 'bg-[var(--surface-soft)] text-[var(--text-secondary)] border-[var(--border)]' };
             case 'nonverbal':
-                return { text: 'Untuk Pengguna Nonverbal', bg: 'bg-teal-500/20 text-teal-800 border-teal-600/30' };
+                return { text: 'Untuk Pengguna Nonverbal', bg: 'bg-[var(--teal-soft)] text-[var(--text-primary)] border-[var(--teal)]' };
             default:
-                return { text: 'Panduan Penolong Umum', bg: 'bg-slate-100 text-navy-900 border-slate-300' };
+                return { text: 'Panduan Penolong Umum', bg: 'bg-[var(--surface)] text-[var(--text-primary)] border-[var(--border-strong)]' };
         }
     };
 
     return (
-        <section id="helper-guides" aria-labelledby="helper-guides-heading" className="py-10 border-t border-border-subtle scroll-mt-20">
+        <section id="helper-guides" aria-labelledby="helper-guides-heading" className="py-10 border-t border-public-border scroll-mt-20">
             <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-                <span className="inline-block rounded-full bg-teal-50 px-4 py-1 text-xs sm:text-sm font-extrabold text-teal-800 uppercase tracking-wider border border-teal-600/30">
+                <span className="inline-block rounded-full bg-teal-primary/10 px-4 py-1 text-xs sm:text-sm font-extrabold text-teal-primary uppercase tracking-wider border border-teal-primary/20">
                     Edukasi Kedaruratan Inklusif
                 </span>
-                <h2 id="helper-guides-heading" className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-900 tracking-tight">
+                <h2 id="helper-guides-heading" className="text-2xl sm:text-3xl lg:text-4xl font-black text-text-primary tracking-tight">
                     Panduan Cepat Penolong
                 </h2>
-                <p className="text-base sm:text-lg text-ink-600 font-medium">
+                <p className="text-base sm:text-lg text-text-secondary font-medium">
                     Panduan praktis berempati bagi masyarakat umum, relawan, maupun tenaga profesional saat memberikan pertolongan darurat.
                 </p>
             </div>
@@ -77,7 +77,7 @@ export default function HelperGuidesSection({
                             return (
                                 <div 
                                     key={guide.id} 
-                                    className="rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                                    className="public-card p-6 sm:p-7 shadow-card hover:shadow-card-hover hover:border-[var(--focus)] transition-all duration-200 flex flex-col justify-between"
                                 >
                                     <div>
                                         <div className="flex items-center justify-between gap-2 mb-4">
@@ -85,10 +85,10 @@ export default function HelperGuidesSection({
                                                 {badge.text}
                                             </span>
                                         </div>
-                                        <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 tracking-tight">
+                                        <h3 className="text-lg sm:text-xl font-extrabold text-text-primary mb-3 tracking-tight">
                                             {guide.title}
                                         </h3>
-                                        <p className={`text-sm sm:text-base text-ink-600 leading-relaxed font-medium whitespace-pre-line transition-all ${!isExpanded && needsTruncate ? 'line-clamp-3' : ''}`}>
+                                        <p className={`text-sm sm:text-base text-text-secondary leading-relaxed font-semibold whitespace-pre-line transition-all ${!isExpanded && needsTruncate ? 'line-clamp-3' : ''}`}>
                                             {guide.body}
                                         </p>
                                     </div>
@@ -96,7 +96,7 @@ export default function HelperGuidesSection({
                                         <button
                                             type="button"
                                             onClick={() => toggleExpand(guide.id)}
-                                            className="mt-4 self-start text-xs sm:text-sm font-extrabold text-teal-700 hover:text-teal-800 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+                                            className="mt-4 self-start text-xs sm:text-sm font-extrabold text-teal-primary hover:text-teal-hover underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-primary"
                                         >
                                             {isExpanded ? 'Sembunyikan' : 'Baca Selengkapnya ➔'}
                                         </button>
@@ -111,7 +111,7 @@ export default function HelperGuidesSection({
                             <button
                                 type="button"
                                 onClick={() => setShowAll(prev => !prev)}
-                                className="min-h-[48px] inline-flex items-center justify-center rounded-2xl border-2 border-navy-900 bg-white px-8 py-3 text-base font-extrabold text-navy-900 shadow-sm hover:bg-navy-900 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 transition-colors"
+                                className="public-button-secondary min-h-[48px] inline-flex items-center justify-center px-8 py-3 text-base shadow-card transition-all public-focus-ring"
                             >
                                 {showAll ? 'Tampilkan Lebih Sedikit' : `Lihat Semua Panduan (${initialGuides.length}) ➔`}
                             </button>

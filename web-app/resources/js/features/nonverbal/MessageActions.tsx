@@ -28,7 +28,7 @@ export default function MessageActions({
                     onClick={() => setIsLargeTextOpen(true)}
                     disabled={isTextEmpty}
                     aria-label="Tampilkan teks dalam modus ukuran besar kontras tinggi"
-                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl bg-navy-900 text-white font-extrabold text-sm sm:text-base shadow-xs hover:bg-navy-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none transition-colors"
+                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl bg-teal-primary text-white font-extrabold text-sm sm:text-base shadow-xs hover:bg-teal-hover focus:outline-none focus-visible:ring-[3px] focus-visible:ring-teal-primary/30 disabled:bg-[var(--surface-soft)] disabled:text-[var(--text-muted)] disabled:shadow-none disabled:opacity-100 transition-all"
                 >
                     <span>🔍</span>
                     <span>Teks Besar</span>
@@ -39,7 +39,7 @@ export default function MessageActions({
                     onClick={onCopy}
                     disabled={isTextEmpty || isCopying}
                     aria-label="Salin isi pesan ke clipboard"
-                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl border-2 border-navy-900 bg-white text-navy-900 font-extrabold text-sm sm:text-base shadow-xs hover:bg-slate-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500 disabled:border-slate-300 disabled:text-slate-400 disabled:bg-slate-50 disabled:shadow-none transition-colors"
+                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl border border-public-border-strong bg-[var(--surface)] text-text-primary font-extrabold text-sm sm:text-base shadow-xs hover:bg-public-selected hover:border-[var(--focus)] focus:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] disabled:border-[var(--border)] disabled:text-[var(--text-muted)] disabled:bg-[var(--surface-soft)] disabled:shadow-none disabled:opacity-100 transition-all"
                 >
                     <span>📋</span>
                     <span>{isCopying ? 'Menyalin...' : 'Salin Teks'}</span>
@@ -50,7 +50,7 @@ export default function MessageActions({
                     onClick={onClear}
                     disabled={isTextEmpty}
                     aria-label="Hapus semua isi teks"
-                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl border-2 border-rose-600 bg-rose-50 text-rose-800 font-bold text-sm sm:text-base hover:bg-rose-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-500 disabled:border-slate-300 disabled:text-slate-400 disabled:bg-slate-50 transition-colors"
+                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-xl border border-coral-emergency bg-coral-emergency/10 text-coral-emergency font-extrabold text-sm sm:text-base hover:bg-coral-emergency/20 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-coral-emergency/30 disabled:border-[var(--border)] disabled:text-[var(--text-muted)] disabled:bg-[var(--surface-soft)] disabled:opacity-100 transition-all"
                 >
                     <span>🗑️</span>
                     <span>Hapus Semua</span>
@@ -61,7 +61,7 @@ export default function MessageActions({
                 <div
                     role="status"
                     aria-live="polite"
-                    className="p-3 rounded-xl bg-teal-800 text-white text-xs sm:text-sm font-extrabold text-center animate-in fade-in motion-reduce:animate-none"
+                    className="p-3 rounded-xl bg-teal-primary/10 border border-teal-primary/20 text-teal-primary text-xs sm:text-sm font-extrabold text-center animate-in fade-in"
                 >
                     ✓ {copyFeedback}
                 </div>

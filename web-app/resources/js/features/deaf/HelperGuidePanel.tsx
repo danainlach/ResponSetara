@@ -44,23 +44,23 @@ export default function HelperGuidePanel({
     return (
         <section
             aria-labelledby="helper-guides-title"
-            className="rounded-2xl border-2 border-slate-200 bg-white p-5 sm:p-6 shadow-sm h-full flex flex-col justify-between"
+            className="rounded-[22px] border border-public-border bg-card p-6 shadow-card h-full flex flex-col justify-between"
         >
             <div>
-                <div className="border-b border-slate-200 pb-3 mb-4">
-                    <h2 id="helper-guides-title" className="text-lg sm:text-xl font-bold text-navy-900 flex items-center gap-2">
+                <div className="border-b border-public-border pb-3 mb-4">
+                    <h2 id="helper-guides-title" className="text-lg sm:text-xl font-extrabold text-text-primary flex items-center gap-2">
                         <span aria-hidden="true">💡</span>
                         <span>Panduan Untuk Penolong</span>
                     </h2>
-                    <p className="text-xs sm:text-sm text-ink-600 mt-1">
+                    <p className="text-xs sm:text-sm text-text-secondary font-semibold mt-1">
                         Tips komunikasi efektif dari database untuk berinteraksi dengan pengguna tuli atau gangguan pendengaran:
                     </p>
                 </div>
 
                 {isLoading ? (
                     <div className="py-12 flex flex-col items-center justify-center space-y-3">
-                        <div className="h-8 w-8 border-4 border-teal-700 border-t-transparent rounded-full animate-spin" />
-                        <p className="text-xs font-semibold text-ink-600">Memuat tips dari database...</p>
+                        <div className="h-8 w-8 border-4 border-teal-primary border-t-transparent rounded-full animate-spin" />
+                        <p className="text-xs font-semibold text-text-secondary">Memuat tips dari database...</p>
                     </div>
                 ) : error ? (
                     <StateError
@@ -77,15 +77,15 @@ export default function HelperGuidePanel({
                         {guides.map((guide, idx) => (
                             <li
                                 key={guide.id || idx}
-                                className="rounded-xl border border-slate-200 bg-slate-50 p-4 hover:bg-slate-100/60 transition-colors"
+                                className="rounded-xl border border-public-border bg-public-surface-muted p-4 hover:bg-public-selected hover:border-teal-primary/60 transition-all duration-200"
                             >
-                                <h3 className="text-sm sm:text-base font-extrabold text-teal-950 flex items-center gap-2">
-                                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-teal-100 text-teal-900 font-black text-xs shrink-0">
+                                <h3 className="text-sm sm:text-base font-extrabold text-text-primary flex items-center gap-2">
+                                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-teal-primary text-white font-black text-xs shrink-0">
                                         {idx + 1}
                                     </span>
                                     <span>{guide.title}</span>
                                 </h3>
-                                <p className="text-xs sm:text-sm text-ink-700 font-medium mt-2 pl-8 leading-relaxed">
+                                <p className="text-xs sm:text-sm text-text-secondary font-semibold mt-2 pl-8 leading-relaxed">
                                     {guide.body}
                                 </p>
                             </li>
@@ -94,8 +94,8 @@ export default function HelperGuidePanel({
                 )}
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 text-center sm:text-left">
-                <p className="text-xs text-slate-600 font-medium italic">
+            <div className="mt-6 pt-4 border-t border-public-border text-center sm:text-left">
+                <p className="text-xs text-text-secondary font-semibold italic">
                     *Panduan bersumber secara real-time dari endpoint <code>/api/v1/helper-guides</code>.</p>
             </div>
         </section>

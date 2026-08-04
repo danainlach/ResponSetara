@@ -15,6 +15,23 @@
             }
         </style>
 
+        {{-- FOUC prevention: immediately apply dark class for admin/settings pages
+             before any JS bundle loads. Reads from localStorage (admin_appearance). --}}
+        <script>
+            (function () {
+                try {
+                    var pathname = window.location.pathname;
+                    if (/^\/(admin|settings)/.test(pathname)) {
+                        var a = localStorage.getItem('admin_appearance') || 'dark';
+                        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                        if (a === 'dark' || (a === 'system' && prefersDark)) {
+                            document.documentElement.classList.add('dark');
+                        }
+                    }
+                } catch (e) { /* localStorage not available */ }
+            })();
+        </script>
+
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">

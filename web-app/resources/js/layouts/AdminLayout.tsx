@@ -28,8 +28,8 @@ export default function AdminLayout({
             flash?.success
                 ? { type: 'success' as const, text: flash.success }
                 : flash?.error
-                  ? { type: 'error' as const, text: flash.error }
-                  : null,
+                    ? { type: 'error' as const, text: flash.error }
+                    : null,
         [flash]
     );
     const [dismissedText, setDismissedText] = useState<string | null>(null);
@@ -57,22 +57,21 @@ export default function AdminLayout({
                     <div
                         role="alert"
                         aria-live="assertive"
-                        className={`fixed top-16 right-4 z-50 flex items-center gap-3 rounded-lg border px-4 py-3 shadow-lg transition-all ${
-                            currentToast.type === 'success'
-                                ? 'border-emerald-500/30 bg-emerald-950/90 text-emerald-200'
-                                : 'border-red-500/30 bg-red-950/90 text-red-200'
-                        }`}
+                        className={`fixed top-16 right-4 z-50 flex items-center gap-3 rounded-lg border px-4 py-3 shadow-lg transition-all ${currentToast.type === 'success'
+                                ? 'border-emerald-500/30 bg-emerald-50 text-emerald-900'
+                                : 'border-red-500/30 bg-red-50 text-red-900'
+                            }`}
                     >
                         {currentToast.type === 'success' ? (
-                            <CheckCircle className="h-5 w-5 text-emerald-400 shrink-0" />
+                            <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0" />
                         ) : (
-                            <AlertCircle className="h-5 w-5 text-red-400 shrink-0" />
+                            <AlertCircle className="h-5 w-5 text-red-600 shrink-0" />
                         )}
                         <span className="text-sm font-medium">{currentToast.text}</span>
                         <button
                             type="button"
                             onClick={() => setDismissedText(currentToast.text)}
-                            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+                            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-black"
                             aria-label="Tutup notifikasi"
                         >
                             <X className="h-4 w-4" />

@@ -12,10 +12,10 @@ import { email } from '@/routes/password';
 export default function ForgotPassword({ status }: { status?: string }) {
     return (
         <>
-            <Head title="Forgot password" />
+            <Head title="Lupa Kata Sandi" />
 
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <div className="mb-4 text-center text-sm font-bold text-green-600">
                     {status}
                 </div>
             )}
@@ -25,14 +25,15 @@ export default function ForgotPassword({ status }: { status?: string }) {
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email" className="text-text-primary text-sm font-bold">Alamat Email</Label>
                                 <Input
                                     id="email"
                                     type="email"
                                     name="email"
                                     autoComplete="off"
                                     autoFocus
-                                    placeholder="email@example.com"
+                                    placeholder="nama@responsetara.id"
+                                    className="bg-white border-border-strong text-text-primary focus:border-teal-primary focus:ring-[3px] focus:ring-teal-primary/30 rounded-xl h-12 px-4"
                                 />
 
                                 <InputError message={errors.email} />
@@ -40,23 +41,23 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                             <div className="my-6 flex items-center justify-start">
                                 <Button
-                                    className="w-full"
+                                    className="w-full bg-teal-primary hover:bg-teal-hover text-white font-black py-3 rounded-xl transition-all duration-200 shadow-md min-h-[48px]"
                                     disabled={processing}
                                     data-test="email-password-reset-link-button"
                                 >
                                     {processing && (
-                                        <LoaderCircle className="h-4 w-4 animate-spin" />
+                                        <LoaderCircle className="h-4 w-4 animate-spin text-white" />
                                     )}
-                                    Email password reset link
+                                    Kirim Tautan Reset Kata Sandi
                                 </Button>
                             </div>
                         </>
                     )}
                 </Form>
 
-                <div className="space-x-1 text-center text-sm text-muted-foreground">
-                    <span>Or, return to</span>
-                    <TextLink href={login()}>log in</TextLink>
+                <div className="space-x-1 text-center text-sm text-text-secondary">
+                    <span>Atau, kembali ke halaman</span>
+                    <TextLink href={login()} className="text-teal-primary hover:text-teal-hover hover:underline">masuk</TextLink>
                 </div>
             </div>
         </>
@@ -64,6 +65,6 @@ export default function ForgotPassword({ status }: { status?: string }) {
 }
 
 ForgotPassword.layout = {
-    title: 'Forgot password',
-    description: 'Enter your email to receive a password reset link',
+    title: 'Lupa Kata Sandi',
+    description: 'Masukkan alamat email terdaftar Anda untuk menerima tautan penyetelan ulang kata sandi.',
 };

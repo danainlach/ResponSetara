@@ -14,7 +14,8 @@
         "test:e2e": "playwright test",
         "test:e2e:a11y": "playwright test accessibility.spec.ts",
         "test:e2e:ui": "playwright test --ui",
-        "test:e2e:ci": "playwright test --reporter=dot --workers=1"
+        "test:e2e:ci": "playwright test --reporter=dot --workers=1",
+        "test:e2e:chromium": "playwright test --reporter=dot --workers=1 --project=\"Desktop Chromium\" --project=\"Mobile Chrome\""
     },
     "devDependencies": {
         "@axe-core/playwright": "^4.12.1",

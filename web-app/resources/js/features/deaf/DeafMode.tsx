@@ -61,12 +61,12 @@ export default function DeafMode({
         <div className="space-y-6 max-w-6xl mx-auto">
             <LiveAnnouncer message={announcement} />
 
-            <header className="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <header className="border-b border-public-border pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl font-extrabold text-navy-900 tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary tracking-tight">
                         Mode Komunikasi: Saya Tidak Dapat Mendengar (Tuli)
                     </h1>
-                    <p className="text-sm sm:text-base text-ink-700 font-medium mt-1">
+                    <p className="text-sm sm:text-base text-text-secondary font-semibold mt-1 leading-relaxed">
                         Fasilitas pengenalan ucapan penolong menjadi teks interaktif untuk situasi darurat dan gangguan pendengaran.
                     </p>
                 </div>
@@ -74,7 +74,7 @@ export default function DeafMode({
                 <a
                     href="/"
                     aria-label="Kembali ke halaman utama Beranda ResponSetara"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-slate-300 bg-white text-navy-900 font-bold text-xs sm:text-sm hover:bg-slate-100 transition-colors shrink-0 min-h-[44px]"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-public-border-strong bg-[var(--surface)] text-text-primary font-extrabold text-xs sm:text-sm hover:bg-public-selected hover:border-[var(--focus)] focus:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] transition-all shrink-0 min-h-[44px]"
                 >
                     <span aria-hidden="true">←</span>
                     <span>Kembali ke Beranda</span>

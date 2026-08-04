@@ -1,5 +1,6 @@
 import { Link, router } from '@inertiajs/react';
-import { LogOut, Settings } from 'lucide-react';
+import { edit as editAppearance } from '@/routes/appearance';
+import { LogOut, Settings, Palette } from 'lucide-react';
 import {
     DropdownMenuGroup,
     DropdownMenuItem,
@@ -41,7 +42,18 @@ export function UserMenuContent({ user }: Props) {
                         onClick={cleanup}
                     >
                         <Settings className="mr-2" />
-                        Settings
+                        Pengaturan
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Link
+                        className="block w-full cursor-pointer"
+                        href={editAppearance()}
+                        prefetch
+                        onClick={cleanup}
+                    >
+                        <Palette className="mr-2" />
+                        Tampilan
                     </Link>
                 </DropdownMenuItem>
             </DropdownMenuGroup>

@@ -18,23 +18,23 @@ export default function AssistanceTypeSelector({
 
     return (
         <fieldset aria-invalid={!!error} aria-describedby={error ? "assistance-error-desc" : undefined} className="space-y-4 pt-4">
-            <div className="flex items-baseline justify-between pb-1 border-b border-slate-200">
-                <legend className="text-lg sm:text-xl font-extrabold text-navy-900">
+            <div className="flex items-baseline justify-between pb-1 border-b border-public-border">
+                <legend className="text-lg sm:text-xl font-extrabold text-text-primary">
                     3. Bantuan yang Dibutuhkan
                 </legend>
-                <span className="text-xs sm:text-sm font-semibold text-ink-600">
+                <span className="text-xs sm:text-sm font-extrabold text-text-secondary">
                     (Maks. 3 opsi — Terpilih: {selectedIds.length}/3)
                 </span>
             </div>
 
             {error && (
-                <p id="assistance-error-desc" role="alert" className="text-sm font-bold text-coral-600 bg-coral-50 p-3 rounded-lg border border-coral-600/30">
+                <p id="assistance-error-desc" role="alert" className="text-sm font-bold text-coral-emergency bg-coral-emergency/10 p-3.5 rounded-xl border border-coral-emergency/20">
                     ⚠️ {error.join(' ')}
                 </p>
             )}
 
             {assistanceTypes.length === 0 ? (
-                <p className="text-sm text-ink-600 italic py-2">
+                <p className="text-sm text-text-secondary font-semibold italic py-2">
                     Daftar jenis bantuan darurat akan menyesuaikan dengan kategori yang dipilih.
                 </p>
             ) : (
@@ -46,12 +46,12 @@ export default function AssistanceTypeSelector({
                         return (
                             <label
                                 key={item.id}
-                                className={`min-h-[52px] relative flex items-center space-x-3.5 px-4 py-3 rounded-xl border-2 transition-colors ${
+                                className={`min-h-[52px] relative flex items-center space-x-3.5 px-4 py-3 rounded-xl border transition-all ${
                                     isSelected 
-                                        ? 'bg-teal-700 border-teal-700 text-white shadow-xs' 
+                                        ? 'bg-public-selected border-[var(--focus)] ring-[3px] ring-[var(--focus-ring)] text-text-primary font-extrabold shadow-xs' 
                                         : (isDisabled 
-                                            ? 'bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed opacity-60' 
-                                            : 'bg-white border-slate-200 hover:border-slate-300 text-ink-900 cursor-pointer'
+                                            ? 'bg-[var(--surface-soft)] border-[var(--border)] text-[var(--text-muted)] cursor-not-allowed opacity-60' 
+                                            : 'bg-[var(--surface)] border-public-border-strong hover:border-[var(--focus)] hover:bg-public-selected text-text-primary cursor-pointer'
                                         )
                                 }`}
                             >
@@ -61,13 +61,13 @@ export default function AssistanceTypeSelector({
                                     checked={isSelected}
                                     disabled={isDisabled}
                                     onChange={() => onToggle(item.id)}
-                                    className="h-5 w-5 rounded border-2 border-slate-400 text-navy-900 focus:ring-4 focus:ring-navy-900/50 cursor-pointer disabled:cursor-not-allowed"
+                                    className="h-5 w-5 rounded border border-public-border-strong text-teal-primary focus:ring-[3px] focus:ring-teal-primary/30 cursor-pointer disabled:cursor-not-allowed"
                                     aria-label={`Bantuan: ${item.label}`}
                                 />
-                                <span className="flex-1 text-sm sm:text-base font-medium leading-tight">
+                                <span className="flex-1 text-sm sm:text-base font-extrabold leading-tight">
                                     {item.label}
                                     {item.category_id === null && (
-                                        <span className={`ml-2 text-xs font-bold px-2 py-0.5 rounded-md inline-block ${isSelected ? 'bg-teal-800 text-white' : 'bg-slate-200 text-ink-600'}`}>
+                                        <span className={`ml-2 text-xs font-bold px-2 py-0.5 rounded-md inline-block ${isSelected ? 'bg-teal-primary text-white' : 'bg-public-surface-muted text-text-secondary border border-public-border'}`}>
                                             Umum
                                         </span>
                                     )}
@@ -78,7 +78,7 @@ export default function AssistanceTypeSelector({
                 </div>
             )}
             {isMaxReached && (
-                <p className="text-xs text-teal-700 font-bold mt-1" aria-live="polite">
+                <p className="text-xs text-teal-primary font-extrabold mt-1" aria-live="polite">
                     ℹ️ Anda telah memilih batas maksimal 3 jenis bantuan darurat.
                 </p>
             )}

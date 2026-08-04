@@ -10,7 +10,7 @@ export type UseAppearanceReturn = {
 };
 
 const listeners = new Set<() => void>();
-let currentAppearance: Appearance = 'system';
+let currentAppearance: Appearance = 'dark';
 
 const prefersDark = (): boolean => {
     if (typeof window === 'undefined') {
@@ -31,10 +31,11 @@ const setCookie = (name: string, value: string, days = 365): void => {
 
 const getStoredAppearance = (): Appearance => {
     if (typeof window === 'undefined') {
-        return 'system';
+        return 'dark';
     }
 
-    return (localStorage.getItem('appearance') as Appearance) || 'system';
+    const stored = localStorage.getItem('admin_appearance') as Appearance;
+    return stored || 'dark';
 };
 
 const isDarkMode = (appearance: Appearance): boolean => {
@@ -45,16 +46,14 @@ const applyTheme = (appearance: Appearance): void => {
     if (typeof document === 'undefined') {
         return;
     }
-
-    const isDark = isDarkMode(appearance);
-
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+    
+    // We intentionally DO NOT apply .dark to document.documentElement 
+    // to prevent the theme from bleeding into the public pages.
+    // The admin layouts will use the resolvedAppearance to scope the theme.
 };
 
 const subscribe = (callback: () => void) => {
     listeners.add(callback);
-
     return () => listeners.delete(callback);
 };
 
@@ -68,20 +67,34 @@ const mediaQuery = (): MediaQueryList | null => {
     return window.matchMedia('(prefers-color-scheme: dark)');
 };
 
-const handleSystemThemeChange = (): void => applyTheme(currentAppearance);
+const handleSystemThemeChange = (): void => {
+    applyTheme(currentAppearance);
+    notify();
+};
 
 export function initializeTheme(): void {
     if (typeof window === 'undefined') {
         return;
     }
 
-    if (!localStorage.getItem('appearance')) {
-        localStorage.setItem('appearance', 'system');
-        setCookie('appearance', 'system');
+    if (!localStorage.getItem('admin_appearance')) {
+        localStorage.setItem('admin_appearance', 'dark');
+        setCookie('admin_appearance', 'dark');
     }
+
+    // Always delete legacy appearance cookie to prevent backend from adding .dark globally
+    document.cookie = 'appearance=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.removeItem('appearance');
 
     currentAppearance = getStoredAppearance();
     applyTheme(currentAppearance);
+
+    // FOUC prevention: apply html.dark early for admin/settings pages before React hydrates.
+    // AppShell's useEffect will take over once the component mounts.
+    const isAdminOrSettings = /^\/(admin|settings)/.test(window.location.pathname);
+    if (isAdminOrSettings && isDarkMode(currentAppearance)) {
+        document.documentElement.classList.add('dark');
+    }
 
     // Set up system theme change listener
     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
@@ -91,7 +104,7 @@ export function useAppearance(): UseAppearanceReturn {
     const appearance: Appearance = useSyncExternalStore(
         subscribe,
         () => currentAppearance,
-        () => 'system',
+        () => 'dark',
     );
 
     const resolvedAppearance: ResolvedAppearance = isDarkMode(appearance)
@@ -102,10 +115,10 @@ export function useAppearance(): UseAppearanceReturn {
         currentAppearance = mode;
 
         // Store in localStorage for client-side persistence...
-        localStorage.setItem('appearance', mode);
+        localStorage.setItem('admin_appearance', mode);
 
-        // Store in cookie for SSR...
-        setCookie('appearance', mode);
+        // Store in cookie for SSR (if needed by specific admin layouts)...
+        setCookie('admin_appearance', mode);
 
         applyTheme(mode);
         notify();
