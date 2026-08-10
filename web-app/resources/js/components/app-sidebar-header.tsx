@@ -1,9 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
-import { Calendar, ShieldCheck } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import type { BreadcrumbItem as BreadcrumbItemType } from '@/types';
+
+const formatIndonesianDate = () => {
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const months = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    const now = new Date();
+    const dayName = days[now.getDay()];
+    const date = now.getDate();
+    const monthName = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    return `${dayName}, ${date} ${monthName} ${year}`;
+};
 
 export function AppSidebarHeader({
     breadcrumbs = [],
@@ -11,24 +26,7 @@ export function AppSidebarHeader({
     breadcrumbs?: BreadcrumbItemType[];
 }) {
     const { auth } = usePage<any>().props;
-    const [currentTime, setCurrentTime] = useState('');
-
-    useEffect(() => {
-        const formatIndonesianDate = () => {
-            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const months = [
-                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-            ];
-            const now = new Date();
-            const dayName = days[now.getDay()];
-            const date = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
-            return `${dayName}, ${date} ${monthName} ${year}`;
-        };
-        setCurrentTime(formatIndonesianDate());
-    }, []);
+    const [currentTime] = useState(() => formatIndonesianDate());
 
     return (
         <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center justify-between border-b border-sidebar-border/30 bg-background/85 backdrop-blur-md px-6 transition-all duration-200 ease-in-out md:px-6">

@@ -21,11 +21,13 @@ export function AppShell({ children, variant = 'sidebar' }: Props) {
     // so public pages and auth pages are never affected.
     useEffect(() => {
         const html = document.documentElement;
+
         if (resolvedAppearance === 'dark') {
             html.classList.add('dark');
         } else {
             html.classList.remove('dark');
         }
+
         return () => {
             html.classList.remove('dark');
         };

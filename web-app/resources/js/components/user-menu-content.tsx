@@ -1,6 +1,6 @@
 import { Link, router } from '@inertiajs/react';
-import { edit as editAppearance } from '@/routes/appearance';
 import { LogOut, Settings, Palette } from 'lucide-react';
+import { edit as editAppearance } from '@/routes/appearance';
 import {
     DropdownMenuGroup,
     DropdownMenuItem,
