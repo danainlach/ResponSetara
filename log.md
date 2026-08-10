@@ -664,7 +664,8 @@ Pendekatan ini digunakan untuk mengurangi perubahan di luar scope dan menjaga st
 
 **Frontend:** Final  
 **Deployment:** Online  
-**Domain:** https://afnicode.me  
+**Domain:** https://afnicode.me
+**Role Admin:** tambahkan /Login (syarah@gmail.com / admin123456)
 **Backend functionality:** Aktif  
 **AI feature:** Aktif dengan fallback  
 **Accessibility:** Diuji  
