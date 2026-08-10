@@ -664,14 +664,16 @@ Pendekatan ini digunakan untuk mengurangi perubahan di luar scope dan menjaga st
 
 **Frontend:** Final  
 **Deployment:** Online  
-**Domain:** https://afnicode.me
-**Role Admin:** tambahkan /Login (syarah@gmail.com / admin123456)
+**Domain:** [https://afnicode.me](https://afnicode.me)  
+**Role Admin:** [Login Admin](https://afnicode.me/login)  
+**Email Admin:** [syarah@gmail.com](mailto:syarah@gmail.com)  
+**Password Admin:** `admin123456`  
 **Backend functionality:** Aktif  
 **AI feature:** Aktif dengan fallback  
 **Accessibility:** Diuji  
 **Admin CMS:** Aktif  
 **Production database:** Tidak dimasukkan ke dokumentasi prompt  
-**Credential:** Tidak dicantumkan  
+**Credential:** Kredensial admin demo dicantumkan khusus untuk kebutuhan penilaian; credential sensitif lainnya tidak dicantumkan.
 
 ---
 
